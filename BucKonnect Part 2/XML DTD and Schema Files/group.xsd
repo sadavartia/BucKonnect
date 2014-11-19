@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="group">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OSU_Email_ID" />
+				<xs:element ref="groupName" />
+				<xs:element name="groupInfo" />
+				<xs:element name="primaryAdmin" />
+				<xs:element ref="secondaryAdmin" />
+				<xs:element ref="post" />
+				<xs:element ref="category" />
+				<xs:element ref="groupId" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OSU_Email_ID">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-z]+.[0-9]+@osu.edu" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="groupName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-zA-Z !]+" />
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="groupInfo">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="250" />
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="primaryAdmin">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="secondaryAdmin">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+	</xs:simpleType>
+	</xs:element>
+	<xs:element name="post">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>	
+	<xs:element name="category">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="groupId">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>
