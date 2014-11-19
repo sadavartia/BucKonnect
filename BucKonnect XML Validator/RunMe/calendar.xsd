@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="calendar">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OSU_Email_ID" />
+				<xs:element ref="calendarId" />
+				<xs:element name="startDateTime" type="xs:dateTime" />
+				<xs:element name="endDateTime" type="xs:dateTime" />
+				<xs:element ref="location" />
+				<xs:element ref="eventName" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OSU_Email_ID">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-z]+.[0-9]+@osu.edu" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="calendarId">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:pattern value="[0-9]+" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+	<xs:element name="location">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30" />
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="eventName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	
+</xs:schema>

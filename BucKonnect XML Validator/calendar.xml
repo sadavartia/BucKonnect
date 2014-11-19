@@ -1,0 +1,8 @@
+<calendar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="calendar.xsd">
+	<OSU_Email_ID>pande.1@osu.edu</OSU_Email_ID>
+	<calendarId>123</calendarId>
+	<startDateTime>2014-10-05T08:00:00</startDateTime>
+	<endDateTime>2014-10-08T12:30:05.6</endDateTime>
+	<location>Ohio Union</location>
+	<eventName>Hackathron</eventName>
+</calendar>

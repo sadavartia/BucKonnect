@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT calendar ((<OSU_Email_ID,calendarId,startDateTime,endDateTime,location,eventName>))>
+<!ATTLIST calendar
+	xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation CDATA #FIXED "E:/dec/User1/src/calendar.xsd"
+>
+<!ELEMENT OSU_Email_ID (#PCDATA)>
+<!ELEMENT CalendarId (#PCDATA)>
+

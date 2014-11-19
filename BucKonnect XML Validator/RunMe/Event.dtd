@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT event ((<eventId,eventName,eventDetails,primaryEventCoordinator,secondaryEventCoordinator>))>
+<!ATTLIST event
+	xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation CDATA #FIXED "event.xsd"
+>
+<!ELEMENT eventId (#PCDATA)>

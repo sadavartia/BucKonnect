@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT group ((<OSU_Email_ID,groupName,groupInfo,primaryAdmin,secondaryAdmin,post,category,groupId>))
+<!ATTLIST group
+	xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation CDATA #FIXED "E:/dec/User1/src/user.xsd"
+>
+<!ELEMENT OSU_Email_ID (#PCDATA)>
+<!ELEMENT groupId(#PCDATA)>

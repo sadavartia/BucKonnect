@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="user">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="OSU_Email_ID" />
+				<xs:element ref="firstName" />
+				<xs:element ref="lastName" />
+				<xs:element ref="phoneNumber" />
+				<xs:element name="dob" type="xs:date" />
+				<xs:element name="isFaculty" type="xs:boolean" />
+				<xs:element ref="userName" />
+				<xs:element ref="password" />
+				<xs:element ref="aboutMe" />
+				<xs:element ref="major" />
+				<xs:element ref="interests" />
+				<xs:element ref="privacySettings" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OSU_Email_ID">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-z]+.[0-9]+@osu.edu" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="firstName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-zA-Z]+" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="lastName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-zA-Z]+" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="phoneNumber">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:pattern value="[0-9]{10}" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="userName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-zA-Z0-9]{8,10}" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="password">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-zA-Z0-9]{8,12}" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="aboutMe">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="250" />
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="major">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="interests">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:whiteSpace value="preserve" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="privacySettings">
+		<xs:complexType>
+			<xs:attribute name="text" type="xs:boolean" use="required">
+			</xs:attribute>
+			<xs:attribute name="call" type="xs:boolean" use="required">
+			</xs:attribute>
+			<xs:attribute name="view" type="xs:boolean" use="required">
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT user ((<OSU_Email_ID,lastName,firstName,phoneNumber,dob,isFaculty,userName,password,aboutMe,major,interest,privacySettings>))
+<!ATTLIST user
+	xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation CDATA #FIXED "E:/dec/User1/src/user.xsd"
+>
+<!ELEMENT OSU_Email_ID (#PCDATA)>

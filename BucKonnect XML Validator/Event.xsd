@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="event">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="eventId" type="xs:integer" />
+				<xs:element ref="eventName" />
+				<xs:element ref="eventDetails" />
+				<xs:element ref="primaryEventCoordinator" />
+				<xs:element ref="secondaryEventCoordinator" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="eventName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="[a-zA-Z0-9\-\.]+" />
+				<xs:whiteSpace value="collapse" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="eventDetails">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value=".+" />
+				<xs:maxLength value="250" />
+				<xs:whiteSpace value="collapse" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="primaryEventCoordinator">
+		<xs:complexType>
+			<xs:attribute name="firstName" type="xs:string" use="required">
+			</xs:attribute>
+			<xs:attribute name="lastName" type="xs:string" use="required">
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="secondaryEventCoordinator">
+		<xs:complexType>
+			<xs:attribute name="firstName" type="xs:string">
+			</xs:attribute>
+			<xs:attribute name="lastName" type="xs:string">
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
