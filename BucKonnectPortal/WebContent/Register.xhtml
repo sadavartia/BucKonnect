@@ -14,11 +14,11 @@
                 <h:inputText id = "i1" value="#{registerBean.name}"></h:inputText>
                 <h:outputText  id = "o2" value="Password"></h:outputText>
                 <h:inputSecret  id = "i2" value="#{registerBean.password}"></h:inputSecret>
-				<h:outputText  id = "o3" value="#{registerBean.valid}"></h:outputText>
-                
+                <h:commandButton value="Register" action="#{registerBean.register_User}" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px"></h:commandButton>
             </h:panelGrid>
             
-            <h:commandButton value="Is Name Valid?" style= "position: absolute; left: 300px; top: 59px;">
+            <!-- <h:commandButton value="Is Name Valid?" style= "position: absolute; left: 300px; top: 59px;">
             	            <f:ajax execute = "i1" render = "o3"></f:ajax>
             </h:commandButton>
             
@@ -37,7 +37,7 @@
    				<f:selectItem itemValue="Employee" itemLabel="Employee" />
    			</h:selectOneRadio>
    			
-   		    <h:commandButton value="Test" action="test"></h:commandButton>
+   		    <h:commandButton value="Test" action="test"></h:commandButton> -->
    			
             
         </h:form>
