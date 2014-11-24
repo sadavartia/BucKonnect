@@ -1,25 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
- 
-  <managed-bean>
-  <managed-bean-name>registerBean</managed-bean-name>
-  <managed-bean-class>backingBeans.RegisterBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
- </managed-bean>
- 
- <managed-bean>
-  <managed-bean-name>createGroupBean</managed-bean-name>
-  <managed-bean-class>backingBeans.CreateGroupBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
- </managed-bean>
- 
- <managed-bean>
-  <managed-bean-name>createEventBean</managed-bean-name>
-  <managed-bean-class>backingBeans.CreateEventBean</managed-bean-class>
-  <managed-bean-scope>application</managed-bean-scope>
- </managed-bean>
- 
- 
- <application/>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+	<managed-bean>
+		<managed-bean-name>registerBean</managed-bean-name>
+		<managed-bean-class>backingBeans.RegisterBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>backingBeans.LoginBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>createGroupBean</managed-bean-name>
+		<managed-bean-class>backingBeans.CreateGroupBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>createEventBean</managed-bean-name>
+		<managed-bean-class>backingBeans.CreateEventBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>updateUserProfileBean</managed-bean-name>
+		<managed-bean-class>backingBeans.UpdateUserProfileBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>loginBean</property-name>
+			<property-class>backingBeans.LoginBean</property-class>
+			<value>#{loginBean}</value>
+		</managed-property>
+	</managed-bean>
+
+	<navigation-rule>
+		<display-name>Login.xhtml</display-name>
+		<from-view-id>/Login.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>register</from-outcome>
+			<to-view-id>/Register.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/Profile.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>Register.xhtml</display-name>
+		<from-view-id>/Register.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/Login.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>Profile.xhtml</display-name>
+		<from-view-id>/Profile.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>back</from-outcome>
+			<to-view-id>/Home.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/Welcome.html</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<application />
 </faces-config>

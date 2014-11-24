@@ -11,20 +11,19 @@
 		<h:form>
 			<h:panelGrid columns="2">
 				<h:outputText id="o1" value="Name"></h:outputText>
-				<h:inputText id="i1" value="#{registerBean.name}" validatorMessage="Name should be in format: xyz.#@osu.edu">
+				<h:inputText id="i1" value="#{loginBean.name}" validatorMessage="Name should be in format: xyz.#@osu.edu">
 					<f:validateRegex pattern="[a-z]+.[0-9]+@osu.edu"></f:validateRegex>
 				</h:inputText>
 				<h:outputText id="o2" value="Password"></h:outputText>
-				<h:inputSecret id="i2" value="#{registerBean.password}" validatorMessage="Password should be between 8 to 20 chars"
-					required="true">
-					<f:validateLength for="password" minimum="8" maximum="20" />
+				<h:inputSecret id="i2" value="#{loginBean.password}"  validatorMessage="Password should be between 8 to 20 chars" required="true" requiredMessage="Password not provided.">
+					<f:validateLength for="Password" minimum="8" maximum="20" />
 				</h:inputSecret>
-				<h:commandButton value="Register"
-					action="#{registerBean.register_User}"
+				<h:commandButton value="Login" action="#{loginBean.login_User()}"
 					style="position: static; 
             left: 200px; top: 100px; width: 100px; height: 25px"></h:commandButton>
+				<h:messages style="color:red;margin:8px;" />
 			</h:panelGrid>
-			<h:messages style="color:red;margin:8px;" />
+			<h:button value="New user? Signup" outcome="register" />
 		</h:form>
 	</ui:define>
 </ui:composition>

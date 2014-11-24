@@ -1,0 +1,6 @@
+select * from USERS;
+select * from GROUPS;
+select * from EVENTS;
+
+
+update Users set first_name='Nandkumar' where osu_email_id='khobare.1@osu.edu'

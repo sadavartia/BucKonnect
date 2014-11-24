@@ -71,6 +71,7 @@ public class UserService {
 						+ "'" + user.getInterests() + "'" + " ,"
 						+ " Where OSU_Email_Id = " + "'"
 						+ user.getOSU_Email_Id() + "'", UserEntity.class);
+		System.out.println(query);
 
 		try {
 			query.executeUpdate();

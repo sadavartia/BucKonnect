@@ -2,18 +2,14 @@ package backingBeans;
 
 import javax.ejb.EJB;
 
-import bucKonnect.EJB.Entities.*;
+import bucKonnect.EJB.Entities.UserEntity;
 import bucKonnect.EJB.Sessions.*;
-
-/**
- * 
- */
 
 /**
  * @author Nandkumar
  *
  */
-public class RegisterBean {
+public class LoginBean {
 	@EJB
 	private UserService userService;
 	private String name;
@@ -34,13 +30,13 @@ public class RegisterBean {
 	public void setPassword(final String password) {
 		this.password = password;
 	}
-
-	public String register_User() {
-		if ((name.isEmpty() != true) && (password.isEmpty() != true)) {
+	
+	public String login_User() {
+		if (!name.isEmpty() && !password.isEmpty()) {
 			UserEntity user = new UserEntity();
 			user.setOSU_Email_Id(getName());
 			user.setPassword(getPassword());
-			String ret = userService.register_User(user);
+			String ret = userService.login_User(user);
 			if (ret.equalsIgnoreCase("success"))
 				return "success";
 			else
