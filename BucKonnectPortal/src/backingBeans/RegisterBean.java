@@ -1,8 +1,5 @@
 package backingBeans;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.ejb.EJB;
 
 import bucKonnect.EJB.Entities.*;
@@ -38,7 +35,7 @@ public class RegisterBean {
 		this.password = password;
 	}
 
-	public String register_User() {
+	public String registerUser() {
 		if ((name.isEmpty() != true) && (password.isEmpty() != true)) {
 			UserEntity user = new UserEntity();
 			user.setOSU_Email_Id(getName());

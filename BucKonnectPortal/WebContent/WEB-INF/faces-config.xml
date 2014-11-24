@@ -8,6 +8,18 @@
   <managed-bean-scope>application</managed-bean-scope>
  </managed-bean>
  
+ <managed-bean>
+  <managed-bean-name>createGroupBean</managed-bean-name>
+  <managed-bean-class>backingBeans.CreateGroupBean</managed-bean-class>
+  <managed-bean-scope>application</managed-bean-scope>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>createEventBean</managed-bean-name>
+  <managed-bean-class>backingBeans.CreateEventBean</managed-bean-class>
+  <managed-bean-scope>application</managed-bean-scope>
+ </managed-bean>
+ 
  
  <application/>
 </faces-config>

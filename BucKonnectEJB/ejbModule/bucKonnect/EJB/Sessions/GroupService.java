@@ -2,6 +2,7 @@ package bucKonnect.EJB.Sessions;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,6 +11,7 @@ import javax.validation.ConstraintViolationException;
 
 import bucKonnect.EJB.Entities.GroupEntity;
 
+@Stateless
 public class GroupService {
 	
 	@PersistenceContext(unitName = "BucKonnect-EJB")
