@@ -3,6 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 	<managed-bean>
+		<managed-bean-name>welcomeBean</managed-bean-name>
+		<managed-bean-class>backingBeans.WelcomeBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
 		<managed-bean-name>registerBean</managed-bean-name>
 		<managed-bean-class>backingBeans.RegisterBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
