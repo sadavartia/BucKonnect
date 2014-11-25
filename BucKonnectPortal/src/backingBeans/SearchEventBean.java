@@ -9,11 +9,9 @@ import bucKonnect.EJB.Sessions.*;
 
 import javax.ejb.EJB;
 
-import sun.security.action.GetLongAction;
-
 public class SearchEventBean {
 
-    @EJB
+	@EJB
 	private EventService eventService;
 	private String event_Name;
 	private String event_Details;
@@ -22,26 +20,22 @@ public class SearchEventBean {
 	private String event_Info;
 	private Date event_Date_Time;
 	private Time event_Duration;
-	
 
 	private List<List<String>> Search_List;
 
-	
 	public String searchEvent() {
 		if (!(getEvent_Name()).isEmpty()) {
 			EventEntity event = new EventEntity();
 			event.setEvent_Name(getEvent_Name());
 			event.setEvent_Location(getEvent_Location());
 			Search_List = eventService.search_Events(event);
-		
-				return "Success";
-		
+			return "Success";
+
 		} else
 			return "Error";
-
 	}
 
-		public List<List<String>> getSearch_List() {
+	public List<List<String>> getSearch_List() {
 		return Search_List;
 	}
 
@@ -105,4 +99,3 @@ public class SearchEventBean {
 		this.event_Duration = event_Duration;
 	}
 }
-

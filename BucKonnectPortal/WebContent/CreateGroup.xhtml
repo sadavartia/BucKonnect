@@ -15,10 +15,12 @@
         		 </f:facet>
                 <h:outputText id = "o1" value="Group Name"></h:outputText>
                 <h:inputText id = "i1" value="#{createGroupBean.groupName}"></h:inputText>
-                <h:outputText  id = "o2" value="Group Information"></h:outputText>
-                <h:inputText  id = "i2" value="#{createGroupBean.groupInfo}"></h:inputText>
-                 <h:outputText  id = "o3" value="Group Category"></h:outputText>
-                <h:inputText  id = "i3" value="#{createGroupBean.category}"></h:inputText>
+                <h:outputText  id = "o2" value="Primary Admin"></h:outputText>
+                <h:outputText  id = "i2" value="#{loginBean.name}"></h:outputText>
+                 <h:outputText  id = "o3" value="Group Information"></h:outputText>
+                <h:inputText  id = "i3" value="#{createGroupBean.groupInfo}"></h:inputText>
+                 <h:outputText  id = "o4" value="Group Category"></h:outputText>
+                <h:inputText  id = "i4" value="#{createGroupBean.category}"></h:inputText>
                 <h:commandButton value="Create" action="#{createGroupBean.createGroup}" style= "position: static; 
             left: 200px; top: 100px; width: 100px; height: 25px"></h:commandButton>
             </h:panelGrid>

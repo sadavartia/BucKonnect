@@ -13,18 +13,43 @@
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
+		<managed-bean-name>homeBean</managed-bean-name>
+		<managed-bean-class>backingBeans.HomeBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>loginBean</property-name>
+			<property-class>backingBeans.LoginBean</property-class>
+			<value>#{loginBean}</value>
+		</managed-property>
+		<managed-property>
+			<property-name>userProfileBean</property-name>
+			<property-class>backingBeans.UserProfileBean</property-class>
+			<value>#{userProfileBean}</value>
+		</managed-property>
+	</managed-bean>
+	<managed-bean>
 		<managed-bean-name>createGroupBean</managed-bean-name>
 		<managed-bean-class>backingBeans.CreateGroupBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>loginBean</property-name>
+			<property-class>backingBeans.LoginBean</property-class>
+			<value>#{loginBean}</value>
+		</managed-property>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>createEventBean</managed-bean-name>
 		<managed-bean-class>backingBeans.CreateEventBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>loginBean</property-name>
+			<property-class>backingBeans.LoginBean</property-class>
+			<value>#{loginBean}</value>
+		</managed-property>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>updateUserProfileBean</managed-bean-name>
-		<managed-bean-class>backingBeans.UpdateUserProfileBean</managed-bean-class>
+		<managed-bean-name>userProfileBean</managed-bean-name>
+		<managed-bean-class>backingBeans.UserProfileBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
 		<managed-property>
 			<property-name>loginBean</property-name>
@@ -100,6 +125,15 @@
 	</navigation-rule>
 
 	<navigation-rule>
+		<display-name>Home.xhtml</display-name>
+		<from-view-id>/Home.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>userprofile</from-outcome>
+			<to-view-id>/Profile.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
 		<display-name>Profile.xhtml</display-name>
 		<from-view-id>/Profile.xhtml</from-view-id>
 		<navigation-case>
@@ -108,7 +142,7 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/Home.html</to-view-id>
+			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

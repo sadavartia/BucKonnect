@@ -14,27 +14,27 @@
 			<h:panelGrid columns="2">
 				<h:outputText value="User : #{loginBean.name}"></h:outputText><h:outputText value="" />
 				<h:outputText value="First Name"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.firstName}"></h:inputText>
+				<h:inputText value="#{userProfileBean.firstName}"></h:inputText>
 				<h:outputText value="Last Name"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.lastName}"></h:inputText>
+				<h:inputText value="#{userProfileBean.lastName}"></h:inputText>
 				<h:outputText value="Phone Number"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.phone_Number}"></h:inputText>
+				<h:inputText value="#{userProfileBean.phone_Number}"></h:inputText>
 				<h:outputText value="DOB"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.dob}"></h:inputText>
+				<h:inputText value="#{userProfileBean.dob}"></h:inputText>
 				<h:outputText value="IsFaculty"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.is_Faculty}"></h:inputText>
+				<h:inputText value="#{userProfileBean.is_Faculty}"></h:inputText>
 				<h:outputText value="Department"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.department}"></h:inputText>
+				<h:inputText value="#{userProfileBean.department}"></h:inputText>
 				<h:outputText value="Major"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.major}"></h:inputText>
+				<h:inputText value="#{userProfileBean.major}"></h:inputText>
 				<h:outputText value="About me"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.about_Me}"></h:inputText>
+				<h:inputText value="#{userProfileBean.about_Me}"></h:inputText>
 				<h:outputText value="Interests"></h:outputText>
-				<h:inputText value="#{updateUserProfileBean.interests}"></h:inputText>
+				<h:inputText value="#{userProfileBean.interests}"></h:inputText>
 			</h:panelGrid>
 			<h:commandButton value="Back" action="back"></h:commandButton>
 			<h:commandButton value="Update Details"
-				action="#{updateProfileBean.update_User}"></h:commandButton>
+				action="#{userProfileBean.update_User}"></h:commandButton>
 		</h:form>
 	</ui:define>
 </ui:composition>

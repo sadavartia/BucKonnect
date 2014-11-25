@@ -1,6 +1,16 @@
+--Create table Users(User_Id LONG PRIMARY KEY auto_increment, OSU_Email_Id VARCHAR(250), First_Name VARCHAR(250), Last_Name VARCHAR(250), Phone_Number VARCHAR(250), DOB VARCHAR(250), Is_Faculty VARCHAR(250), Password VARCHAR(250), About_Me VARCHAR(250), Major VARCHAR(250), Department VARCHAR(250), Interests VARCHAR(250));
+
+--CREATE TABLE Groups(Group_Id INT PRIMARY KEY auto_increment, Group_Name VARCHAR(250), Group_Info VARCHAR(250), Primary_Admin VARCHAR(250), Category VARCHAR(250));
+
+--CREATE TABLE Events(Event_Id INT PRIMARY KEY auto_increment, Event_Name VARCHAR(250), Event_Info VARCHAR(250), Event_Details VARCHAR(250), Primary_Event_Coordinator VARCHAR(250), Event_Location VARCHAR(250), Event_Date_Time VARCHAR(250), Event_Duration VARCHAR(250));
+
 select * from USERS;
 select * from GROUPS;
 select * from EVENTS;
 
 
-update Users set first_name='Nandkumar' where osu_email_id='khobare.1@osu.edu'
+--update Users set first_name='Test', last_name='User', Department='CSE' where osu_email_id='test'
+
+--drop table Users
+--drop table Groups
+--drop table Events

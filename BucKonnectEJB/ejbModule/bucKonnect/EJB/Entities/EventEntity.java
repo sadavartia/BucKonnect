@@ -50,13 +50,13 @@ public class EventEntity {
 	}	
 	
 	@Column(name="Primary_Event_Coordinator")
-	private long primary_Event_Coordinator;
+	private String primary_Event_Coordinator;
 	
-	public long getPrimary_Event_Coordinator() {
+	public String getPrimary_Event_Coordinator() {
 		return primary_Event_Coordinator;
 	}
 
-	public void setPrimary_Event_Coordinator(long primary_Event_Coordinator) {
+	public void setPrimary_Event_Coordinator(String primary_Event_Coordinator) {
 		this.primary_Event_Coordinator = primary_Event_Coordinator;
 	}	
 	
@@ -71,7 +71,7 @@ public class EventEntity {
 		this.event_Location = event_Location;
 	}	
 	
-	@Column(name="Event_Info ")
+	@Column(name="Event_Info")
 	private String event_Info;
 	public String getEvent_Info() {
 		return event_Info;
@@ -82,22 +82,22 @@ public class EventEntity {
 	}	
 	
 	@Column(name = "Event_Date_Time")
-	private Date event_Date_Time;
-	public Date getEvent_Date_Time() {
+	private String event_Date_Time;
+	public String getEvent_Date_Time() {
 		return event_Date_Time;
 	}
 
-	public void setEvent_Date_Time(Date event_Date_Time) {
+	public void setEvent_Date_Time(String event_Date_Time) {
 		this.event_Date_Time = event_Date_Time;
 	}	
 	
 	@Column(name="Event_Duration")
-	private Time event_Duration;
-	public Time getEvent_Duration() {
+	private String event_Duration;
+	public String getEvent_Duration() {
 		return event_Duration;
 	}
 
-	public void setEvent_Duration(Time event_Duration) {
+	public void setEvent_Duration(String event_Duration) {
 		this.event_Duration = event_Duration;
 	}	
 }

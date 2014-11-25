@@ -6,6 +6,7 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
 
+
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
        <h:form>
@@ -19,11 +20,18 @@
          <h:outputLabel value="Event Details" />
          <h:inputText value="#{createEventBean.eventdetails}"/>
          <h:outputLabel value="Primary Event Coordinator" />
-         <h:inputText value="#{createEventBean.pec}"/>
+         <h:outputText value="#{loginBean.name}"/>
          <h:outputLabel value="Event Location" />
          <h:inputText value="#{createEventBean.eventlocation}" />
          <h:outputLabel value="Event Information" />
          <h:inputText value="#{createEventBean.eventinfo}" />
+         <h:outputLabel value="Event Date and Time" />
+         <h:inputText value="#{createEventBean.event_Date_Time}"/>  
+         <h:outputLabel value="Event Duration" />
+         <h:inputText value="#{createEventBean.event_Duration}"/>
+       
+         
+       
          
          <f:facet name="footer">
             <h:panelGroup style="display:block; text-align:center">

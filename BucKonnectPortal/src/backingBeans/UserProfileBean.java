@@ -11,9 +11,10 @@ import bucKonnect.EJB.Sessions.UserService;
  * @author Nandkumar
  *
  */
-public class UpdateUserProfileBean {
-	
+public class UserProfileBean {
+
 	private LoginBean loginBean;
+
 	public LoginBean getLoginBean() {
 		return loginBean;
 	}
@@ -21,15 +22,15 @@ public class UpdateUserProfileBean {
 	public void setLoginBean(LoginBean loginBean) {
 		this.loginBean = loginBean;
 	}
-	
+
 	@EJB
 	private UserService userService;
 	private String name;
 	private String firstName;
 	private String lastName;
-	private long phone_Number;
-	private Date dob;
-	private boolean is_Faculty;
+	private String phone_Number;
+	private String dob;
+	private String is_Faculty;
 	private String department;
 	private String major;
 	private String about_Me;
@@ -37,19 +38,22 @@ public class UpdateUserProfileBean {
 
 	public String update_User() {
 		UserEntity user = new UserEntity();
+		System.out.println(loginBean.getName());
 		user.setOSU_Email_Id(loginBean.getName());
 		user.setFirst_Name(getFirstName());
 		user.setLast_Name(getLastName());
+		System.out.println(getLastName());
 		user.setPhone_Number(getPhone_Number());
 		user.setDob(getDob());
-		user.setIs_Faculty(isIs_Faculty());
+		System.out.println(getIs_Faculty());
+		user.setIs_Faculty(getIs_Faculty());
 		user.setDepartment(getDepartment());
 		user.setMajor(getMajor());
 		user.setAbout_Me(getAbout_Me());
 		user.setInterests(getInterests());
 		String ret = userService.update_User(user);
 		if (ret.equalsIgnoreCase("success"))
-			return "Success";
+			return "success";
 		else
 			return "Failure";
 	}
@@ -87,7 +91,7 @@ public class UpdateUserProfileBean {
 	/**
 	 * @return the phone_Number
 	 */
-	public long getPhone_Number() {
+	public String getPhone_Number() {
 		return phone_Number;
 	}
 
@@ -95,14 +99,14 @@ public class UpdateUserProfileBean {
 	 * @param phone_Number
 	 *            the phone_Number to set
 	 */
-	public void setPhone_Number(long phone_Number) {
+	public void setPhone_Number(String phone_Number) {
 		this.phone_Number = phone_Number;
 	}
 
 	/**
 	 * @return the dob
 	 */
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
 
@@ -110,14 +114,14 @@ public class UpdateUserProfileBean {
 	 * @param dob
 	 *            the dob to set
 	 */
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 
 	/**
 	 * @return the is_Faculty
 	 */
-	public boolean isIs_Faculty() {
+	public String getIs_Faculty() {
 		return is_Faculty;
 	}
 
@@ -125,7 +129,7 @@ public class UpdateUserProfileBean {
 	 * @param is_Faculty
 	 *            the is_Faculty to set
 	 */
-	public void setIs_Faculty(boolean is_Faculty) {
+	public void setIs_Faculty(String is_Faculty) {
 		this.is_Faculty = is_Faculty;
 	}
 
@@ -197,7 +201,8 @@ public class UpdateUserProfileBean {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;

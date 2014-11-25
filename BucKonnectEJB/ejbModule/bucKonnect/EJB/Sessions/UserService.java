@@ -1,5 +1,6 @@
 package bucKonnect.EJB.Sessions;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,18 +61,16 @@ public class UserService {
 	public String update_User(UserEntity user) {
 
 		Query query = em.createNativeQuery(
-				"Update Users Set First_Name = " + "'" + user.getFirst_Name()
-						+ "'" + " ," + " Last_Name = " + "'"
-						+ user.getLast_Name() + "'" + " ," + " Phone_Number = "
-						+ user.getPhone_Number() + " ," + " Dob = "
-						+ user.getDob() + " ," + " Department = " + "'"
-						+ user.getDepartment() + "'" + " ," + " Major = " + "'"
-						+ user.getMajor() + "'" + " ," + " About_Me = " + "'"
-						+ user.getAbout_Me() + "'" + " ," + " Interests = "
-						+ "'" + user.getInterests() + "'" + " ,"
-						+ " Where OSU_Email_Id = " + "'"
+				"Update Users Set First_Name = '" + user.getFirst_Name()
+						+ "', Last_Name = '" + user.getLast_Name()
+						+ "', Phone_Number = '" + user.getPhone_Number()
+						+ "', Dob = '" + user.getDob() + "', Is_Faculty = '"
+						+ user.getIs_Faculty() + "', Department = '"
+						+ user.getDepartment() + "', Major = '"
+						+ user.getMajor() + "', About_Me = '"
+						+ user.getAbout_Me() + "', Interests = '"
+						+ user.getInterests() + "' Where OSU_Email_Id = '"
 						+ user.getOSU_Email_Id() + "'", UserEntity.class);
-
 		try {
 			query.executeUpdate();
 			em.flush();
@@ -91,10 +90,16 @@ public class UserService {
 				"Select * from Users where OSU_Email_Id = '"
 						+ user.getOSU_Email_Id() + "'", UserEntity.class);
 
-		String OSU_Email_Id;
-		String FName;
-		String LName;
-		String major;
+		String OSU_Email_Id = "";
+		String FName = "";
+		String LName = "";
+		String PNo = "";
+		String DOB = "";
+		String IsFaculty = "";
+		String AboutMe = "";
+		String Major = "";
+		String Dept = "";
+		String Interests = "";
 		users = query.getResultList();
 		if (!users.isEmpty()) {
 			int size = users.size();
@@ -104,16 +109,38 @@ public class UserService {
 				temp = users.get(i);
 
 				OSU_Email_Id = temp.getOSU_Email_Id();
-				FName = temp.getFirst_Name();
-				LName = temp.getLast_Name();
-				major = temp.getMajor();
-
+				if (temp.getFirst_Name() != null)
+					FName = temp.getFirst_Name();
+				if (temp.getLast_Name() != null)
+					LName = temp.getLast_Name();
+				// PNo = Long.toString(temp.getPhone_Number());
+				if (temp.getPhone_Number() != null)
+					PNo = temp.getPhone_Number();
+				if (temp.getDob() != null)
+					DOB = temp.getDob();
+				// IsFaculty = Boolean.toString(temp.isIs_Faculty());
+				if (temp.getIs_Faculty() != null)
+					IsFaculty = temp.getIs_Faculty();
+				if (temp.getAbout_Me() != null)
+					AboutMe = temp.getAbout_Me();
+				if (temp.getMajor() != null)
+					Major = temp.getMajor();
+				if (temp.getDepartment() != null)
+					Dept = temp.getDepartment();
+				if (temp.getInterests() != null)
+					Interests = temp.getInterests();
 				List<String> u = new ArrayList<String>();
 
 				u.add(OSU_Email_Id);
 				u.add(FName);
 				u.add(LName);
-				u.add(major);
+				u.add(PNo);
+				u.add(DOB);
+				u.add(IsFaculty);
+				u.add(AboutMe);
+				u.add(Major);
+				u.add(Dept);
+				u.add(Interests);
 				lsUsers.add(u);
 			}
 		}

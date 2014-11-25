@@ -1,7 +1,5 @@
 package bucKonnect.EJB.Entities;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,13 +26,13 @@ public class UserEntity {
 	private String last_Name;
 
 	@Column(name = "Phone_Number")
-	private long phone_Number;
+	private String phone_Number;
 
 	@Column(name = "DOB")
-	private Date dob;
+	private String dob;
 
 	@Column(name = "Is_Faculty")
-	private boolean is_Faculty;
+	private String is_Faculty;
 
 	@Column(name = "Password")
 	private String password;
@@ -114,7 +112,7 @@ public class UserEntity {
 	/**
 	 * @return the phone_Number
 	 */
-	public long getPhone_Number() {
+	public String getPhone_Number() {
 		return phone_Number;
 	}
 
@@ -122,14 +120,14 @@ public class UserEntity {
 	 * @param phone_Number
 	 *            the phone_Number to set
 	 */
-	public void setPhone_Number(long phone_Number) {
+	public void setPhone_Number(String phone_Number) {
 		this.phone_Number = phone_Number;
 	}
 
 	/**
 	 * @return the dob
 	 */
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
 
@@ -137,14 +135,14 @@ public class UserEntity {
 	 * @param dob
 	 *            the dob to set
 	 */
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 
 	/**
 	 * @return the is_Faculty
 	 */
-	public boolean isIs_Faculty() {
+	public String getIs_Faculty() {
 		return is_Faculty;
 	}
 
@@ -152,7 +150,7 @@ public class UserEntity {
 	 * @param is_Faculty
 	 *            the is_Faculty to set
 	 */
-	public void setIs_Faculty(boolean is_Faculty) {
+	public void setIs_Faculty(String is_Faculty) {
 		this.is_Faculty = is_Faculty;
 	}
 

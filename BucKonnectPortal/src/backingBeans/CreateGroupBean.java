@@ -7,6 +7,13 @@ import javax.ejb.EJB;
 public class CreateGroupBean {
 	@EJB
 	private GroupService groupService;
+	private LoginBean loginBean;
+	
+
+	
+
+
+
 	private String groupName;
 	private String groupInfo;
 	private String category;
@@ -15,6 +22,7 @@ public class CreateGroupBean {
 		if (!(getGroupName().isEmpty())) {
 			GroupEntity group = new GroupEntity();
 			group.setGroup_Name(getGroupName());
+			group.setPrimary_Admin(loginBean.getName());
 			group.setCategory(getCategory());
 			group.setGroup_Info(getGroupInfo());
 
@@ -76,6 +84,13 @@ public class CreateGroupBean {
 	 */
 	public void setCategory(String category) {
 		this.category = category;
+	}
+	public LoginBean getLoginBean() {
+		return loginBean;
+	}
+
+	public void setLoginBean(LoginBean loginBean) {
+		this.loginBean = loginBean;
 	}
 
 }
