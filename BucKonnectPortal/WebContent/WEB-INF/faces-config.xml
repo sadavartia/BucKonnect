@@ -13,6 +13,11 @@
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
+		<managed-bean-name>welcomeBean</managed-bean-name>
+		<managed-bean-class>backingBeans.WelcomeBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
 		<managed-bean-name>loginBean</managed-bean-name>
 		<managed-bean-class>backingBeans.LoginBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
@@ -40,8 +45,18 @@
 			<property-name>loginBean</property-name>
 			<property-class>backingBeans.LoginBean</property-class>
 			<value>#{loginBean}</value>
-		</managed-property>
+	</managed-property>
 	</managed-bean>
+	<navigation-rule>
+		<display-name>CreateGroup.xhtml</display-name>
+		<from-view-id>/CreateGroup.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/GroupCreated.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+
 	<managed-bean>
 		<managed-bean-name>createEventBean</managed-bean-name>
 		<managed-bean-class>backingBeans.CreateEventBean</managed-bean-class>
@@ -52,6 +67,15 @@
 			<value>#{loginBean}</value>
 		</managed-property>
 	</managed-bean>
+	<navigation-rule>
+		<display-name>CreateEvent.xhtml</display-name>
+		<from-view-id>/CreateEvent.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/EventCreated.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
 	<managed-bean>
 		<managed-bean-name>userProfileBean</managed-bean-name>
 		<managed-bean-class>backingBeans.UserProfileBean</managed-bean-class>
@@ -102,6 +126,33 @@
 			<to-view-id>/UsersFound.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>UsersFound.xhtml</display-name>
+		<from-view-id>/UsersFound.xhtml</from-view-id>
+		<navigation-case>
+	       <from-outcome>back</from-outcome>
+      		<to-view-id>/Home.xhtml</to-view-id>
+  		</navigation-case>
+  	</navigation-rule>
+  	
+  	<navigation-rule>
+		<display-name>GroupsFound.xhtml</display-name>
+		<from-view-id>/GroupsFound.xhtml</from-view-id>
+		<navigation-case>
+	       <from-outcome>back</from-outcome>
+      		<to-view-id>/Home.xhtml</to-view-id>
+  		</navigation-case>
+  	</navigation-rule>
+  	
+  	<navigation-rule>
+		<display-name>EventsFound.xhtml</display-name>
+		<from-view-id>/EventsFound.xhtml</from-view-id>
+		<navigation-case>
+	       <from-outcome>back</from-outcome>
+      		<to-view-id>/Home.xhtml</to-view-id>
+  		</navigation-case>
+  	</navigation-rule>
 
 	<navigation-rule>
 		<display-name>Login.xhtml</display-name>
@@ -145,6 +196,7 @@
 			<from-outcome>back</from-outcome>
 			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
+		
 		<navigation-case>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/Home.xhtml</to-view-id>

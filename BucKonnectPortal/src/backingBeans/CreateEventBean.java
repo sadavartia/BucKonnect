@@ -30,8 +30,8 @@ public class CreateEventBean {
 		event.setEvent_Duration(getEvent_Duration());
 
 		String ret = eventservice.createEvent(event);
-		if (!ret.equalsIgnoreCase("success"))
-			return "true";
+		if (ret.equalsIgnoreCase("success"))
+			return "Success";
 		else
 			return "Error";
 	}

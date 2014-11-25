@@ -1,22 +1,21 @@
 package backingBeans;
 
+import java.util.List;
+
 import bucKonnect.EJB.Entities.*;
 import bucKonnect.EJB.Sessions.*;
+
 import javax.ejb.EJB;
 
 public class CreateGroupBean {
 	@EJB
 	private GroupService groupService;
 	private LoginBean loginBean;
-	
-
-	
-
-
-
 	private String groupName;
 	private String groupInfo;
 	private String category;
+	private List<List<String>> Search_List;
+
 
 	public String createGroup() {
 		if (!(getGroupName().isEmpty())) {
@@ -25,15 +24,26 @@ public class CreateGroupBean {
 			group.setPrimary_Admin(loginBean.getName());
 			group.setCategory(getCategory());
 			group.setGroup_Info(getGroupInfo());
+			
+			Search_List = groupService.search_Groups(group);
 
 			String ret = groupService.createGroup(group);
-			if (!ret.equalsIgnoreCase("success"))
-				return "true";
+			if (ret.equalsIgnoreCase("success"))
+				return "Success";
 			else
 				return "Error";
+			
 		} else
 			return "Error";
 
+	}
+	
+	public List<List<String>> getSearch_List() {
+		return Search_List;
+	}
+
+	public void setSearch_List(List<List<String>> search_List) {
+		Search_List = search_List;
 	}
 
 	/**
