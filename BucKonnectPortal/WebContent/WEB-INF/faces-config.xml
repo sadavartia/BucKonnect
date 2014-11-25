@@ -121,6 +121,33 @@
 			<to-view-id>/UsersFound.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<display-name>UsersFound.xhtml</display-name>
+		<from-view-id>/UsersFound.xhtml</from-view-id>
+		<navigation-case>
+	       <from-outcome>back</from-outcome>
+      		<to-view-id>/Home.xhtml</to-view-id>
+  		</navigation-case>
+  	</navigation-rule>
+  	
+  	<navigation-rule>
+		<display-name>GroupsFound.xhtml</display-name>
+		<from-view-id>/GroupsFound.xhtml</from-view-id>
+		<navigation-case>
+	       <from-outcome>back</from-outcome>
+      		<to-view-id>/Home.xhtml</to-view-id>
+  		</navigation-case>
+  	</navigation-rule>
+  	
+  	<navigation-rule>
+		<display-name>EventsFound.xhtml</display-name>
+		<from-view-id>/EventsFound.xhtml</from-view-id>
+		<navigation-case>
+	       <from-outcome>back</from-outcome>
+      		<to-view-id>/Home.xhtml</to-view-id>
+  		</navigation-case>
+  	</navigation-rule>
 
 	<navigation-rule>
 		<display-name>Login.xhtml</display-name>
@@ -164,6 +191,7 @@
 			<from-outcome>back</from-outcome>
 			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
+		
 		<navigation-case>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/Home.xhtml</to-view-id>
