@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+    <ui:define name="content">
+        <h:form>
+            <h:outputText value="Events Found: "></h:outputText>               	
+        
+               <br />
+              <br />
+               
+					<ui:repeat value="#{searchEventBean.}" var="x">
+               	    <h:outputText value="User:"></h:outputText>
+               	    
+               	
+               	        <h:panelGrid columns="2">
+               	        
+
+               	    		<h:outputText value="OSU Email ID:"></h:outputText>
+              				<h:outputText value="#{x[0]}" />          			
+              				
+              				<h:outputText value="First Name:"></h:outputText>
+              				<h:outputText value="#{x[1]}" />
+              				
+              				<h:outputText value="Last Name:"></h:outputText>
+              				<h:outputText value="#{x[2]}" />
+
+              				<h:outputText value="Phone Number:"></h:outputText>
+              				<h:outputText value="#{x[3]}" />
+              				
+              				<h:outputText value="DoB:"></h:outputText>
+              				<h:outputText value="#{x[4]}" />
+              				
+              				<h:outputText value="Is Faculty?:"></h:outputText>
+              				<h:outputText value="#{x[5]}" />
+              				
+              				<h:outputText value="Department:"></h:outputText>
+              				<h:outputText value="#{x[6]}" />
+              				
+              				<h:outputText value="Major:"></h:outputText>
+              				<h:outputText value="#{x[7]}" />
+              				
+              				<h:outputText value="About Me:"></h:outputText>
+              				<h:outputText value="#{x[8]}" />
+              				
+              				<h:outputText value="Interests:"></h:outputText>
+              				<h:outputText value="#{x[9]}" />
+              				              				
+              				<br />
+              				
+              				
+              			</h:panelGrid>
+          		
+               	    </ui:repeat>
+            
+            <h:commandButton value="Back" action="back"></h:commandButton>            
+                        
+            
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

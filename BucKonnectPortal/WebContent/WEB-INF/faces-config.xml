@@ -33,6 +33,46 @@
 		</managed-property>
 	</managed-bean>
 
+	<managed-bean>
+		<managed-bean-name>searchEventBean</managed-bean-name>
+		<managed-bean-class>backingBeans.SearchEventBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>SearchEvent.xhtml</display-name>
+		<from-view-id>/SearchEvent.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/EventsFound.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<managed-bean>
+		<managed-bean-name>searchGroupBean</managed-bean-name>
+		<managed-bean-class>backingBeans.SearchGroupBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>SearchGroup.xhtml</display-name>
+		<from-view-id>/SearchGroup.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/GroupsFound.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<managed-bean>
+		<managed-bean-name>searchUserBean</managed-bean-name>
+		<managed-bean-class>backingBeans.SearchUserBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>SearchUser.xhtml</display-name>
+		<from-view-id>/SearchUser.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/UsersFound.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
 	<navigation-rule>
 		<display-name>Login.xhtml</display-name>
 		<from-view-id>/Login.xhtml</from-view-id>
@@ -42,7 +82,7 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/Profile.xhtml</to-view-id>
+			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
@@ -54,7 +94,11 @@
 			<to-view-id>/Login.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+	<navigation-rule>
+		<display-name>Home.xhtml</display-name>
+		<from-view-id>/Home.xhtml</from-view-id>
+	</navigation-rule>
+
 	<navigation-rule>
 		<display-name>Profile.xhtml</display-name>
 		<from-view-id>/Profile.xhtml</from-view-id>
@@ -64,7 +108,7 @@
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/Welcome.html</to-view-id>
+			<to-view-id>/Home.html</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

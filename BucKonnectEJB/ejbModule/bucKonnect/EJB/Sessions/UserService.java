@@ -71,7 +71,6 @@ public class UserService {
 						+ "'" + user.getInterests() + "'" + " ,"
 						+ " Where OSU_Email_Id = " + "'"
 						+ user.getOSU_Email_Id() + "'", UserEntity.class);
-		System.out.println(query);
 
 		try {
 			query.executeUpdate();
@@ -82,15 +81,42 @@ public class UserService {
 		return "success";
 	}
 
-	public List<UserEntity> search_Users(UserEntity user) {
+	public List<List<String>> search_Users(UserEntity user) {
 
 		List<UserEntity> users = new ArrayList<>();
+
+		List<List<String>> lsUsers = new ArrayList<List<String>>();
 
 		Query query = em.createNativeQuery(
 				"Select * from Users where OSU_Email_Id = '"
 						+ user.getOSU_Email_Id() + "'", UserEntity.class);
 
+		String OSU_Email_Id;
+		String FName;
+		String LName;
+		String major;
 		users = query.getResultList();
-		return users;
+		if (!users.isEmpty()) {
+			int size = users.size();
+
+			for (int i = 0; i < size; i++) {
+				UserEntity temp = new UserEntity();
+				temp = users.get(i);
+
+				OSU_Email_Id = temp.getOSU_Email_Id();
+				FName = temp.getFirst_Name();
+				LName = temp.getLast_Name();
+				major = temp.getMajor();
+
+				List<String> u = new ArrayList<String>();
+
+				u.add(OSU_Email_Id);
+				u.add(FName);
+				u.add(LName);
+				u.add(major);
+				lsUsers.add(u);
+			}
+		}
+		return lsUsers;
 	}
 }

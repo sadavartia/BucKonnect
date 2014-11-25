@@ -1,5 +1,6 @@
 package bucKonnect.EJB.Sessions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -10,10 +11,11 @@ import javax.persistence.Query;
 import javax.validation.ConstraintViolationException;
 
 import bucKonnect.EJB.Entities.GroupEntity;
+import bucKonnect.EJB.Entities.UserEntity;
 
 @Stateless
 public class GroupService {
-	
+
 	@PersistenceContext(unitName = "BucKonnect-EJB")
 	EntityManager em;
 
@@ -36,18 +38,6 @@ public class GroupService {
 		return "Success";
 	}
 
-	public List<GroupEntity> searchGroup(GroupEntity group) {
-
-		List<GroupEntity> group_list;
-		Query query = em.createNativeQuery(
-				"select * from Groups where Group_Name like '"
-						+ group.getGroup_Name() + "' OR Category= '"
-						+ group.getCategory() + "';", GroupEntity.class);
-		group_list = query.getResultList();
-
-		return group_list;
-	}
-
 	public String updateGroup(GroupEntity group) {
 
 		List<GroupEntity> group_list;
@@ -55,11 +45,9 @@ public class GroupService {
 				"update Groups set Group_Name = " + "'" + group.getGroup_Name()
 						+ "'" + " ," + " Group_Information = " + "'"
 						+ group.getGroup_Info() + "'" + " ,"
-						+ " Primary_Admin = " + "'"
-						+ group.getPrimary_Admin() + "'" + " ,"
-						+ " Category = " + "'"
-						+ group.getCategory()  + ";"
-						, GroupEntity.class);
+						+ " Primary_Admin = " + "'" + group.getPrimary_Admin()
+						+ "'" + " ," + " Category = " + "'"
+						+ group.getCategory() + ";", GroupEntity.class);
 
 		try {
 			query.executeUpdate();
@@ -73,5 +61,44 @@ public class GroupService {
 
 	}
 
+	public List<List<String>> search_Groups(GroupEntity group) {
+
+		List<GroupEntity> groups = new ArrayList<>();
+
+		List<List<String>> lsGroups = new ArrayList<List<String>>();
+
+		Query query = em.createNativeQuery(
+				"Select * from Groups where GROUP_NAME = '"
+						+ group.getGroup_Name() + "'", GroupEntity.class);
+
+		String group_Name;
+		String group_Info;
+		String primary_Admin;
+		String category;
+
+		groups = query.getResultList();
+		if (!groups.isEmpty()) {
+			int size = groups.size();
+
+			for (int i = 0; i < size; i++) {
+				GroupEntity temp = new GroupEntity();
+				temp = groups.get(i);
+
+				group_Name = temp.getGroup_Name();
+				group_Info = temp.getGroup_Info();
+				primary_Admin = temp.getPrimary_Admin();
+				category = temp.getCategory();
+
+				List<String> g = new ArrayList<String>();
+
+				g.add(group_Name);
+				g.add(group_Info);
+				g.add(primary_Admin);
+				g.add(category);
+				lsGroups.add(g);
+			}
+		}
+		return lsGroups;
+	}
 
 }

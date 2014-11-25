@@ -7,12 +7,14 @@
    <PROCESS-ITEM-OUTPUT ID="register::#Register.xhtml" NAME="output"
     PATH="/Register.xhtml" TARGET="rules:#Register.xhtml"
     TITLE="register" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="success::#Profile.xhtml" NAME="output1"
-    PATH="/Profile.xhtml" TARGET="rules:#Profile.xhtml" TITLE="success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="success::#Home.xhtml" NAME="output1"
+    PATH="/Home.xhtml" TARGET="rules:#Home.xhtml" TITLE="success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#Home.xhtml" PATH="/Home.xhtml"
-  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#Home.xhtml:0" NAME="item" PATH="/Home.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#Register.xhtml" PATH="/Register.xhtml"
   SHAPE="240,145,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#Register.xhtml:0" NAME="item"
@@ -27,10 +29,43 @@
    PATH="/Profile.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="back::#Home.xhtml" NAME="output"
     PATH="/Home.xhtml" TARGET="rules:#Home.xhtml" TITLE="back" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="success::#Welcome.html" NAME="output1"
-    PATH="/Welcome.html" TARGET="rules:#Welcome.html" TITLE="success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="success::#Home.html" NAME="output1"
+    PATH="/Home.html" TARGET="rules:#Home.html" TITLE="success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#Welcome.html" PATH="/Welcome.html"
-  SHAPE="256,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#SearchEvent.xhtml" PATH="/SearchEvent.xhtml"
+  SHAPE="32,417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#SearchEvent.xhtml:0" NAME="item"
+   PATH="/SearchEvent.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Success::#EventsFound.xhtml" NAME="output"
+    PATH="/EventsFound.xhtml" TARGET="rules:#EventsFound.xhtml"
+    TITLE="Success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#SearchGroup.xhtml" PATH="/SearchGroup.xhtml"
+  SHAPE="32,529,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#SearchGroup.xhtml:0" NAME="item"
+   PATH="/SearchGroup.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Success::#GroupsFound.xhtml" NAME="output"
+    PATH="/GroupsFound.xhtml" TARGET="rules:#GroupsFound.xhtml"
+    TITLE="Success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#SearchUser.xhtml" PATH="/SearchUser.xhtml"
+  SHAPE="32,641,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#SearchUser.xhtml:0" NAME="item"
+   PATH="/SearchUser.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Success::#UsersFound.xhtml" NAME="output"
+    PATH="/UsersFound.xhtml" TARGET="rules:#UsersFound.xhtml"
+    TITLE="Success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#UsersFound.xhtml" PATH="/UsersFound.xhtml"
+  SHAPE="240,657,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#GroupsFound.xhtml" PATH="/GroupsFound.xhtml"
+  SHAPE="240,545,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#EventsFound.xhtml" PATH="/EventsFound.xhtml"
+  SHAPE="240,433,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#Home.html" PATH="/Home.html"
+  SHAPE="256,289,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

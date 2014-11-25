@@ -1,5 +1,6 @@
 package bucKonnect.EJB.Sessions;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -10,6 +11,7 @@ import javax.persistence.Query;
 import javax.validation.ConstraintViolationException;
 
 import bucKonnect.EJB.Entities.EventEntity;
+import bucKonnect.EJB.Entities.UserEntity;
 
 /**
  * Session Bean implementation class EventService
@@ -34,18 +36,6 @@ public class EventService {
 			return "Event Exception";
 		}
 		return "Success";
-	}
-
-	public List<EventEntity> searchEvent(EventEntity event) {
-
-		List<EventEntity> event_list;
-		Query query = em.createNativeQuery(
-				"select * from Events where Event_Name like '"
-						+ event.getEvent_Name() + "' OR Event_Location= '"
-						+ event.getEvent_Location() + "';", EventEntity.class);
-		event_list = query.getResultList();
-
-		return event_list;
 	}
 
 	public String updateEvent(EventEntity event) {
@@ -79,4 +69,37 @@ public class EventService {
 
 	}
 
+	public List<List<String>> search_Events(EventEntity event) {
+
+		List<EventEntity> events = new ArrayList<>();
+
+		List<List<String>> lsEvents = new ArrayList<List<String>>();
+		Query query = em.createNativeQuery(
+				"select * from Events where Event_Name like '"
+						+ event.getEvent_Name() + "' OR Event_Location= '"
+						+ event.getEvent_Location() + "';", EventEntity.class);
+
+		String event_Name;
+		String event_Location;
+		events = query.getResultList();
+		if (!events.isEmpty()) {
+			int size = events.size();
+
+			for (int i = 0; i < size; i++) {
+				EventEntity temp = new EventEntity();
+				temp = events.get(i);
+
+				event_Name = temp.getEvent_Name();
+				event_Location = temp.getEvent_Location();
+
+				List<String> e = new ArrayList<String>();
+
+				e.add(event_Name);
+				e.add(event_Location);
+
+				lsEvents.add(e);
+			}
+		}
+		return lsEvents;
+	}
 }
