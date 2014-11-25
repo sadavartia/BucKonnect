@@ -71,4 +71,26 @@
   SHAPE="240,545,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#EventsFound.xhtml" PATH="/EventsFound.xhtml"
   SHAPE="240,433,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#CreateGroup.xhtml" PATH="/CreateGroup.xhtml"
+  SHAPE="32,753,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#CreateGroup.xhtml:0" NAME="item"
+   PATH="/CreateGroup.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Success::#GroupCreated.xhtml" NAME="output"
+    PATH="/GroupCreated.xhtml" TARGET="rules:#GroupCreated.xhtml"
+    TITLE="Success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#GroupCreated.xhtml"
+  PATH="/GroupCreated.xhtml" SHAPE="240,769,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#CreateEvent.xhtml" PATH="/CreateEvent.xhtml"
+  SHAPE="32,865,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#CreateEvent.xhtml:0" NAME="item"
+   PATH="/CreateEvent.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="Success::#EventCreated.xhtml" NAME="output"
+    PATH="/EventCreated.xhtml" TARGET="rules:#EventCreated.xhtml"
+    TITLE="Success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#EventCreated.xhtml"
+  PATH="/EventCreated.xhtml" SHAPE="240,881,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
