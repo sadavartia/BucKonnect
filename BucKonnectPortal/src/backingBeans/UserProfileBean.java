@@ -1,6 +1,7 @@
 package backingBeans;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 
@@ -36,6 +37,43 @@ public class UserProfileBean {
 	private String about_Me;
 	private String interests;
 
+	public String get_Profile() {
+
+		UserEntity user = new UserEntity();
+		user.setOSU_Email_Id(loginBean.getName());
+		List<List<String>> results = userService.search_Users(user);
+		// System.out.println(results.size());
+		// System.out.println(results.get(0).get(0));
+		// System.out.println(results.get(0).get(1));
+		// System.out.println(results.get(0).get(2));
+		// System.out.println(results.get(0).get(3));
+		// System.out.println(results.get(0).get(4));
+		// System.out.println(results.get(0).get(5));
+		// System.out.println(results.get(0).get(6));
+		// System.out.println(results.get(0).get(7));
+		// System.out.println(results.get(0).get(8));
+		// System.out.println(results.get(0).get(9));
+		setName(results.get(0).get(0));
+		setFirstName(results.get(0).get(1));
+		setLastName(results.get(0).get(2));
+		setPhone_Number(results.get(0).get(3));
+		setDob(results.get(0).get(4));
+		setIs_Faculty(results.get(0).get(5));
+		// if (results.get(0).get(3) != null)
+		// userProfileBean.setPhone_Number(Long.parseLong(results.get(0)
+		// .get(3)));
+		// if (results.get(0).get(4) != null)
+		// userProfileBean.setDob(Date.valueOf(results.get(0).get(4)));
+		// if (results.get(0).get(5) != null)
+		// userProfileBean.setIs_Faculty(Boolean.getBoolean(results.get(0)
+		// .get(5)));
+		setAbout_Me(results.get(0).get(6));
+		setMajor(results.get(0).get(7));
+		setDepartment(results.get(0).get(8));
+		setInterests(results.get(0).get(9));
+		return "userprofile";
+	}
+	
 	public String update_User() {
 		UserEntity user = new UserEntity();
 		System.out.println(loginBean.getName());

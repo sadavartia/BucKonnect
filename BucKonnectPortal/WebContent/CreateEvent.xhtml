@@ -35,7 +35,16 @@
          
          <f:facet name="footer">
             <h:panelGroup style="display:block; text-align:center">
-               <h:commandButton value="Create Event" action="#{createEventBean.createEvent}" />
+               <h:commandButton value="Create Event" action="#{createEventBean.createEvent}" style ="cursor: pointer;" />
+               
+                <h:commandButton value="Back" action="Events" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer;"></h:commandButton>
+            
+             <h:commandButton value="Home" action="Home" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer;"></h:commandButton>
+            
+             <h:commandButton value="Logout" action="Login" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer;"></h:commandButton>
             </h:panelGroup>
          </f:facet>
       </h:panelGrid>

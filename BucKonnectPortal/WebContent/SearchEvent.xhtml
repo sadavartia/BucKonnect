@@ -13,7 +13,17 @@
                 <h:outputText id = "o1" value="Event Name"></h:outputText>
                 <h:inputText id = "i1" value="#{searchEventBean.event_Name}"></h:inputText>
                
-                <h:commandButton value="Search Event" action="#{searchEventBean.searchEvent}"></h:commandButton>
+                <h:commandButton value="Search Event" action="#{searchEventBean.searchEvent}" style =" cursor: pointer"></h:commandButton>
+                
+                  <h:commandButton value="Back" action="Search" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer"></h:commandButton>
+            
+             <h:commandButton value="Home" action="Home" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer"></h:commandButton>
+            
+             <h:commandButton value="Logout" action="Login" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer"></h:commandButton>
+           
             
             </h:panelGrid>
         </h:form>

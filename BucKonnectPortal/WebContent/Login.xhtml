@@ -20,10 +20,11 @@
 				</h:inputSecret>
 				<h:commandButton value="Login" action="#{loginBean.login_User()}"
 					style="position: static; 
-            left: 200px; top: 100px; width: 100px; height: 25px"></h:commandButton>
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer;"></h:commandButton>
 				<h:messages style="color:red;margin:8px;" />
+				<h:button value="New user? Signup" outcome="register" style="cursor: pointer;" />
 			</h:panelGrid>
-			<h:button value="New user? Signup" outcome="register" />
+			
 		</h:form>
 	</ui:define>
 </ui:composition>

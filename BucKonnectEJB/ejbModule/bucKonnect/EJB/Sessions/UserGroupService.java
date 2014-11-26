@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.validation.ConstraintViolationException;
 
-import bucKonnect.EJB.Entities.GroupEntity;
 import bucKonnect.EJB.Entities.UserEntity;
 import bucKonnect.EJB.Entities.UserGroupEntity;
 
@@ -31,8 +30,8 @@ public class UserGroupService {
 			return ex.getMessage();
 		} catch (ConstraintViolationException e) {
 			return "Constraint Violation for Group";
-		} catch (Exception e) {
-			return "Group Exception";
+		} catch (Exception ex) {
+			return ex.toString() + ex.getMessage() + ex.getStackTrace();
 		}
 		return "Success";
 	}

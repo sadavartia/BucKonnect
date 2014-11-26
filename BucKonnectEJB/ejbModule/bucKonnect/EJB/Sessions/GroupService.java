@@ -12,6 +12,7 @@ import javax.validation.ConstraintViolationException;
 
 import bucKonnect.EJB.Entities.GroupEntity;
 import bucKonnect.EJB.Entities.UserEntity;
+import bucKonnect.EJB.Entities.UserGroupEntity;
 
 @Stateless
 public class GroupService {
@@ -24,6 +25,12 @@ public class GroupService {
 		try {
 			em.persist(group);
 			em.flush();
+
+			UserGroupEntity usergroup = new UserGroupEntity();
+			usergroup.setUser_Name(group.getPrimary_Admin());
+			usergroup.setGroup_Name(group.getGroup_Name());
+			em.persist(usergroup);
+			
 		} catch (EntityExistsException ex) {
 			return ex.getMessage();
 		}
@@ -68,8 +75,8 @@ public class GroupService {
 		List<List<String>> lsGroups = new ArrayList<List<String>>();
 
 		Query query = em.createNativeQuery(
-				"Select * from Groups where GROUP_NAME = '"
-						+ group.getGroup_Name() + "'", GroupEntity.class);
+				"Select * from Groups where GROUP_NAME LIKE '%"
+						+ group.getGroup_Name() + "%'", GroupEntity.class);
 
 		String group_Name;
 		String group_Info;

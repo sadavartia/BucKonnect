@@ -23,7 +23,16 @@
                 <h:inputText  id = "i4" value="#{createGroupBean.category}"></h:inputText>
                 
                 <h:commandButton value="Create" action="#{createGroupBean.createGroup}" style= "position: static; 
-            left: 200px; top: 100px; width: 100px; height: 25px"></h:commandButton>
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer;"></h:commandButton>
+            
+             <h:commandButton value="Back" action="Groups" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer;"></h:commandButton>
+            
+             <h:commandButton value="Home" action="Home" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer;"></h:commandButton>
+            
+             <h:commandButton value="Logout" action="Login" style= "position: static; 
+            left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer;"></h:commandButton>
             </h:panelGrid>
         </h:form>
     </ui:define>

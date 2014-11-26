@@ -5,25 +5,36 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css"/>
+</head>
+<body>
+<p>OK</p>
+
+
 
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
     <ui:define name="content">
        <h:form>
       <h:panelGrid id="panel" columns="2" border="1"
          cellpadding="10" cellspacing="1">
+         <f:facet name="image">
+   
+         </f:facet>
          <f:facet name="header">
-            <h:outputText value="Welcome #{registerBean.name}"/>
+            <h:outputText value="Welcome #{loginBean.name}"/>
          </f:facet>
          <f:facet name="footer">
             <h:panelGroup style="display:block; text-align:center">
-               <h:commandButton value="Update Profile" action="#{homeBean.get_Profile}" />
-               <h:commandButton value="Search BucKonnect Portal" action="Search" />
-               <h:commandButton value="My Groups" action="UserGroups" />
-               <h:commandButton value="My Events" action="UserEvents" />
+               <h:commandButton value="Update Profile" action="#{userProfileBean.get_Profile}" style = "cursor: pointer;" />
+               <h:commandButton value="Search BucKonnect Portal" action="Search" style ="cursor: pointer;" />
+               <h:commandButton value="My Groups" action="#{searchUserGroupBean.get_User_Groups}" style ="cursor: pointer;" />
+               <h:commandButton value="My Events" action="MyEvents" style = "cursor: pointer;" />
             </h:panelGroup>
          </f:facet>
       </h:panelGrid>
    </h:form>
     </ui:define>
 </ui:composition>
+</body>
 </html>
