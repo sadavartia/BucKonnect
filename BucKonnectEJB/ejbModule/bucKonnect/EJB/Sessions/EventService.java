@@ -12,6 +12,8 @@ import javax.validation.ConstraintViolationException;
 
 import bucKonnect.EJB.Entities.EventEntity;
 import bucKonnect.EJB.Entities.UserEntity;
+import bucKonnect.EJB.Entities.UserEventEntity;
+import bucKonnect.EJB.Entities.UserGroupEntity;
 
 /**
  * Session Bean implementation class EventService
@@ -26,6 +28,11 @@ public class EventService {
 		try {
 			em.persist(event);
 			em.flush();
+
+			UserEventEntity userevent = new UserEventEntity();
+			userevent.setUser_Name(event.getPrimary_Event_Coordinator());
+			userevent.setEvent_Name(event.getEvent_Name());
+			em.persist(userevent);
 		} catch (EntityExistsException ex) {
 			return ex.getMessage();
 		} catch (ConstraintViolationException e) {
@@ -99,10 +106,10 @@ public class EventService {
 				event_Location = temp.getEvent_Location();
 				primary_Event_Coordinator = temp.getPrimary_Event_Coordinator();
 				event_Location = temp.getEvent_Location();
-				event_Info= temp.getEvent_Info();
-				event_Date_Time= temp.getEvent_Date_Time();
-				event_Duration =temp.getEvent_Duration();
-				
+				event_Info = temp.getEvent_Info();
+				event_Date_Time = temp.getEvent_Date_Time();
+				event_Duration = temp.getEvent_Duration();
+
 				List<String> e = new ArrayList<String>();
 
 				e.add(event_Name);
@@ -112,7 +119,6 @@ public class EventService {
 				e.add(event_Info);
 				e.add(event_Date_Time);
 				e.add(event_Duration);
-				
 
 				lsEvents.add(e);
 			}

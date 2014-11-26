@@ -21,6 +21,9 @@
    <PROCESS-ITEM-OUTPUT ID="searchusergroup::#MyGroups.xhtml"
     NAME="output1" PATH="/MyGroups.xhtml" TARGET="rules:#MyGroups.xhtml"
     TITLE="searchusergroup" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="searchuserevent::#MyEvents.xhtml"
+    NAME="output2" PATH="/MyEvents.xhtml" TARGET="rules:#MyEvents.xhtml"
+    TITLE="searchuserevent" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#Register.xhtml" PATH="/Register.xhtml"
@@ -116,4 +119,6 @@
   PATH="/EventCreated.xhtml" SHAPE="240,881,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#MyGroups.xhtml" PATH="/MyGroups.xhtml"
   SHAPE="528,17,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#MyEvents.xhtml" PATH="/MyEvents.xhtml"
+  SHAPE="544,193,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

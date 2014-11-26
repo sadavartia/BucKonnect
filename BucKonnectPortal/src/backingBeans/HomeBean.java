@@ -36,4 +36,14 @@ public class HomeBean {
 	public void setSearchUserGroupBean(SearchUserGroupBean searchUserGroupBean) {
 		this.searchUserGroupBean = searchUserGroupBean;
 	}
+	
+	private SearchUserEventBean searchUserEventBean;
+
+	public SearchUserEventBean getSearchUserEventBean() {
+		return searchUserEventBean;
+	}
+
+	public void setSearchUserEventBean(SearchUserEventBean searchUserEventBean) {
+		this.searchUserEventBean = searchUserEventBean;
+	}
 }
