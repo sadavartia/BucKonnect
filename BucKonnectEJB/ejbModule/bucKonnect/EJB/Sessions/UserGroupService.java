@@ -57,18 +57,27 @@ public class UserGroupService {
 		List<UserGroupEntity> usergroups = new ArrayList<>();
 
 		List<List<String>> lsUserGroups = new ArrayList<List<String>>();
+		// Needs to be implemented properly
+		// Query query = em
+		// .createQuery("Select g from Groups g, UserGroups ug Where  g.Group_Name = ug.Group_Name ");
+		// + "where UG.USER_NAME = '"
+		// + user.getOSU_Email_Id() + "'");
 
 		Query query = em.createNativeQuery(
-				"Select * from UserGroups where USER_NAME = '"
+				"Select * from User_Groups where USER_NAME = '"
 						+ user.getOSU_Email_Id() + "'", UserGroupEntity.class);
-em.
-		String group_Name;
 
 		usergroups = query.getResultList();
+
+		String group_Name;
 		if (!usergroups.isEmpty()) {
 			int size = usergroups.size();
 
 			for (int i = 0; i < size; i++) {
+				// System.out.println(lsUserGroups.get(i).get(0));
+				// System.out.println(lsUserGroups.get(i).get(1));
+				// System.out.println(lsUserGroups.get(i).get(2));
+				// System.out.println(lsUserGroups.get(i).get(3));
 				UserGroupEntity temp = new UserGroupEntity();
 				temp = usergroups.get(i);
 
@@ -83,5 +92,4 @@ em.
 		}
 		return lsUserGroups;
 	}
-
 }

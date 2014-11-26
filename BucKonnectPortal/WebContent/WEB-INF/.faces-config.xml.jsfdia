@@ -98,8 +98,6 @@
     TITLE="Success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#GroupCreated.xhtml"
-  PATH="/GroupCreated.xhtml" SHAPE="240,769,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#CreateEvent.xhtml" PATH="/CreateEvent.xhtml"
   SHAPE="32,865,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#CreateEvent.xhtml:0" NAME="item"
@@ -109,6 +107,8 @@
     TITLE="Success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#GroupCreated.xhtml"
+  PATH="/GroupCreated.xhtml" SHAPE="240,769,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#EventCreated.xhtml"
   PATH="/EventCreated.xhtml" SHAPE="240,881,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

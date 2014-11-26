@@ -13,11 +13,6 @@
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>welcomeBean</managed-bean-name>
-		<managed-bean-class>backingBeans.WelcomeBean</managed-bean-class>
-		<managed-bean-scope>application</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
 		<managed-bean-name>loginBean</managed-bean-name>
 		<managed-bean-class>backingBeans.LoginBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
@@ -126,6 +121,17 @@
 			<to-view-id>/UsersFound.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<managed-bean>
+		<managed-bean-name>searchUserGroupBean</managed-bean-name>
+		<managed-bean-class>backingBeans.SearchUserGroupBean</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+		<managed-property>
+			<property-name>loginBean</property-name>
+			<property-class>backingBeans.LoginBean</property-class>
+			<value>#{loginBean}</value>
+		</managed-property>
+	</managed-bean>
 	
 	<navigation-rule>
 		<display-name>UsersFound.xhtml</display-name>

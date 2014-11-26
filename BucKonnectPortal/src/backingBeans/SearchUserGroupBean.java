@@ -12,46 +12,47 @@ public class SearchUserGroupBean {
 	@EJB
 	private UserGroupService userGroupService;
 
-	private String groupName;
+	private LoginBean loginBean;
+
+	public LoginBean getLoginBean() {
+		return loginBean;
+	}
+
+	public void setLoginBean(LoginBean loginBean) {
+		this.loginBean = loginBean;
+	}
 
 	private List<List<String>> userGroups;
 
-	public String searchGroup() {
-		if (!(getGroupName()).isEmpty()) {
-			GroupEntity group = new GroupEntity();
-			group.setGroup_Name(getGroupName());
-			group.setCategory(getCategory());
-			userGroups = userGroupService.search_Groups(group);
+	public String get_User_Groups() {
+		UserEntity user = new UserEntity();
+		System.out.println(loginBean.getName());
+		user.setOSU_Email_Id(loginBean.getName());
 
+		userGroups = userGroupService.searchUserGroups(user);
+		if (userGroups.size() > 0)
 			return "Success";
-
-		} else
+		else
 			return "Error";
-
 	}
+
+	// public String searchGroup() {
+
+	// userGroupService.searchUserGroups(user);
+
+	// GroupEntity group = new GroupEntity();
+	// group.setGroup_Name(getGroupName());
+	// group.setCategory(getCategory());
+	// userGroups = userGroupService.search_Groups(group);
+
+	// return "Success";
+	// }
 
 	public List<List<String>> getSearch_List() {
-		return Search_List;
+		return userGroups;
 	}
 
-	public void setSearch_List(List<List<String>> search_List) {
-		Search_List = search_List;
+	public void setSearch_List(List<List<String>> userGroups) {
+		this.userGroups = userGroups;
 	}
-
-	public String getGroupName() {
-		return groupName;
-	}
-
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
 }
