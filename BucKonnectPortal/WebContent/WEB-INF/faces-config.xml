@@ -52,16 +52,6 @@
 			<value>#{loginBean}</value>
 		</managed-property>
 	</managed-bean>
-	<navigation-rule>
-		<display-name>CreateGroup.xhtml</display-name>
-		<from-view-id>/CreateGroup.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>Success</from-outcome>
-			<to-view-id>/GroupCreated.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-
-
 	<managed-bean>
 		<managed-bean-name>createEventBean</managed-bean-name>
 		<managed-bean-class>backingBeans.CreateEventBean</managed-bean-class>
@@ -72,15 +62,6 @@
 			<value>#{loginBean}</value>
 		</managed-property>
 	</managed-bean>
-	<navigation-rule>
-		<display-name>CreateEvent.xhtml</display-name>
-		<from-view-id>/CreateEvent.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>Success</from-outcome>
-			<to-view-id>/EventCreated.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-
 	<managed-bean>
 		<managed-bean-name>userProfileBean</managed-bean-name>
 		<managed-bean-class>backingBeans.UserProfileBean</managed-bean-class>
@@ -91,47 +72,21 @@
 			<value>#{loginBean}</value>
 		</managed-property>
 	</managed-bean>
-
 	<managed-bean>
 		<managed-bean-name>searchEventBean</managed-bean-name>
 		<managed-bean-class>backingBeans.SearchEventBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
-	<navigation-rule>
-		<display-name>SearchEvent.xhtml</display-name>
-		<from-view-id>/SearchEvent.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>Success</from-outcome>
-			<to-view-id>/EventsFound.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 	<managed-bean>
 		<managed-bean-name>searchGroupBean</managed-bean-name>
 		<managed-bean-class>backingBeans.SearchGroupBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
-	<navigation-rule>
-		<display-name>SearchGroup.xhtml</display-name>
-		<from-view-id>/SearchGroup.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>Success</from-outcome>
-			<to-view-id>/GroupsFound.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 	<managed-bean>
 		<managed-bean-name>searchUserBean</managed-bean-name>
 		<managed-bean-class>backingBeans.SearchUserBean</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
-	<navigation-rule>
-		<display-name>SearchUser.xhtml</display-name>
-		<from-view-id>/SearchUser.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>Success</from-outcome>
-			<to-view-id>/UsersFound.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-
 	<managed-bean>
 		<managed-bean-name>searchUserGroupBean</managed-bean-name>
 		<managed-bean-class>backingBeans.SearchUserGroupBean</managed-bean-class>
@@ -152,7 +107,66 @@
 			<value>#{loginBean}</value>
 		</managed-property>
 	</managed-bean>
-
+	<navigation-rule>
+		<display-name>CreateGroup.xhtml</display-name>
+		<from-view-id>/CreateGroup.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/GroupCreated.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>CreateEvent.xhtml</display-name>
+		<from-view-id>/CreateEvent.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/EventCreated.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SearchEvent.xhtml</display-name>
+		<from-view-id>/SearchEvent.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/EventsFound.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SearchGroup.xhtml</display-name>
+		<from-view-id>/SearchGroup.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/GroupsFound.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SearchUser.xhtml</display-name>
+		<from-view-id>/SearchUser.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/UsersFound.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	<navigation-rule>
 		<display-name>UsersFound.xhtml</display-name>
 		<from-view-id>/UsersFound.xhtml</from-view-id>
@@ -161,7 +175,6 @@
 			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
 	<navigation-rule>
 		<display-name>GroupsFound.xhtml</display-name>
 		<from-view-id>/GroupsFound.xhtml</from-view-id>
@@ -170,7 +183,6 @@
 			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
 	<navigation-rule>
 		<display-name>EventsFound.xhtml</display-name>
 		<from-view-id>/EventsFound.xhtml</from-view-id>
@@ -179,7 +191,6 @@
 			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
 	<navigation-rule>
 		<display-name>Login.xhtml</display-name>
 		<from-view-id>/Login.xhtml</from-view-id>
@@ -191,8 +202,11 @@
 			<from-outcome>success</from-outcome>
 			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
-
 	<navigation-rule>
 		<display-name>Register.xhtml</display-name>
 		<from-view-id>/Register.xhtml</from-view-id>
@@ -200,29 +214,31 @@
 			<from-outcome>success</from-outcome>
 			<to-view-id>/Login.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<display-name>Home.xhtml</display-name>
 		<from-view-id>/Home.xhtml</from-view-id>
 	</navigation-rule>
-
 	<navigation-rule>
 		<display-name>Home.xhtml</display-name>
 		<from-view-id>/Home.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>userprofile</from-outcome>
+			<from-outcome>UserProfile</from-outcome>
 			<to-view-id>/Profile.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>searchusergroup</from-outcome>
+			<from-outcome>UserGroups</from-outcome>
 			<to-view-id>/MyGroups.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-outcome>searchuserevent</from-outcome>
+			<from-outcome>UserEvents</from-outcome>
 			<to-view-id>/MyEvents.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
 	<navigation-rule>
 		<display-name>Profile.xhtml</display-name>
 		<from-view-id>/Profile.xhtml</from-view-id>
@@ -230,12 +246,21 @@
 			<from-outcome>back</from-outcome>
 			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
-
 		<navigation-case>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/Home.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
 	</navigation-rule>
-
+	<navigation-rule>
+		<from-view-id>/MyGroups.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Error</from-outcome>
+			<to-view-id>/Error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 	<application />
 </faces-config>

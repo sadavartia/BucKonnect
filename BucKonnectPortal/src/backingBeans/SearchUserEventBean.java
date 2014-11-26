@@ -31,7 +31,7 @@ public class SearchUserEventBean {
 
 		userEvents = userEventService.searchUserEvents(user);
 		if (userEvents.size() > 0)
-			return "searchuserevent";
+			return "UserEvents";
 		else
 			return "Error";
 	}

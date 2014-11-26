@@ -31,7 +31,7 @@ public class SearchUserGroupBean {
 
 		userGroups = userGroupService.searchUserGroups(user);
 		if (userGroups.size() > 0)
-			return "searchusergroup";
+			return "UserGroups";
 		else
 			return "Error";
 	}

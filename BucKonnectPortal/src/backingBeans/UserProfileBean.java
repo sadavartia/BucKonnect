@@ -71,7 +71,7 @@ public class UserProfileBean {
 		setMajor(results.get(0).get(7));
 		setDepartment(results.get(0).get(8));
 		setInterests(results.get(0).get(9));
-		return "userprofile";
+		return "UserProfile";
 	}
 	
 	public String update_User() {
@@ -93,7 +93,7 @@ public class UserProfileBean {
 		if (ret.equalsIgnoreCase("success"))
 			return "success";
 		else
-			return "Failure";
+			return "Error";
 	}
 
 	/**

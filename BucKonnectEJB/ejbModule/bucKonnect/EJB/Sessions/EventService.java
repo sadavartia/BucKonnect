@@ -82,9 +82,9 @@ public class EventService {
 
 		List<List<String>> lsEvents = new ArrayList<List<String>>();
 		Query query = em.createNativeQuery(
-				"select * from Events where Event_Name like '"
-						+ event.getEvent_Name() + "' OR Event_Location= '"
-						+ event.getEvent_Location() + "';", EventEntity.class);
+				"select * from Events where Event_Name like '%"
+						+ event.getEvent_Name() + "%' OR Event_Location LIKE '%"
+						+ event.getEvent_Location() + "%';", EventEntity.class);
 
 		String event_Name;
 		String event_Details;

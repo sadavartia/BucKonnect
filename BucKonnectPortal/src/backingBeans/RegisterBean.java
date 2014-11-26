@@ -44,7 +44,7 @@ public class RegisterBean {
 			if (ret.equalsIgnoreCase("success"))
 				return "success";
 			else
-				return "failure";
+				return "Error";
 		}
 		else
 			return "Error";
