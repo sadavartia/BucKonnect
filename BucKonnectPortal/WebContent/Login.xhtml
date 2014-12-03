@@ -13,7 +13,6 @@
 				<h:outputText id="o1" value="Name"></h:outputText>
 				<h:inputText id="i1" value="#{loginBean.name}" validatorMessage="Name should be in format: xyz.#@osu.edu">
 					<!-- <f:validateRegex pattern="[a-zA-Z]+.[0-9]+@osu.edu"></f:validateRegex> -->
-					<f:ajax ></f:ajax>
 				</h:inputText>
 				<h:outputText id="o2" value="Password"></h:outputText>
 				<h:inputSecret id="i2" value="#{loginBean.password}"  validatorMessage="Password should be between 8 to 20 chars" required="true" requiredMessage="Password not provided.">

@@ -1,6 +1,8 @@
-/BucKonnectORMManager.class
-/EventGateway.class
-/GroupGateway.class
-/UserGateway.class
-/DOMParser.class
 /BucKonnectDOMParser.class
+/BucKonnectORMManager.class
+/Event.class
+/EventGateway.class
+/Group.class
+/GroupGateway.class
+/User.class
+/UserGateway.class
