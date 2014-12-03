@@ -1,0 +1,82 @@
+<BucKonnectData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="user.xsd">
+	<User>
+		<Operation>CREATE</Operation>
+		<OSU_Email_ID>pande.1@osu.edu</OSU_Email_ID>
+		<FirstName>Chulbul</FirstName>
+		<LastName>Pande</LastName>
+		<PhoneNumber>1234567890</PhoneNumber>
+		<dob>1970-04-04</dob>
+		<IsFaculty>0</IsFaculty>
+		<UserName>pandeji007</UserName>
+		<Password>1234temp</Password>
+		<AboutMe>nonthing special</AboutMe>
+		<Major>CS@!</Major>
+		<Interests>
+			Dancing
+		</Interests>
+		<PrivacySettings text="0" call="1" view="1"></PrivacySettings>
+	</User>
+	<User>
+		<Operation>READ</Operation>
+		<OSU_Email_ID>pande.1@osu.edu</OSU_Email_ID>
+	</User>
+	<User>
+		<Operation>UPDATE</Operation>
+		<OSU_Email_ID>pande.1@osu.edu</OSU_Email_ID>
+		<FirstName>Nandu</FirstName>
+		<LastName>Khobare</LastName>
+	</User>
+	<User>
+		<Operation>DELETE</Operation>
+		<OSU_Email_ID>pande.1@osu.edu</OSU_Email_ID>
+	</User>
+	<Group>
+		<Operation>CREATE</Operation>
+		<GroupName>Ohio State</GroupName>
+		<GroupInfo>Buckeyes for Life GoBucks!!!!!</GroupInfo>
+		<PrimaryAdmin>Chulbul Pande</PrimaryAdmin>
+		<Category>Football</Category>
+	</Group>
+	<Group>
+		<Operation>READ</Operation>
+		<GroupName>Ohio State</GroupName>
+	</Group>
+	<Group>
+		<Operation>UPDATE</Operation>
+		<GroupName>Ohio State</GroupName>
+		<GroupInfo>Just another football group</GroupInfo>
+		<Category>American Football</Category>
+	</Group>
+	<Group>
+		<Operation>DELETE</Operation>
+		<GroupName>Ohio State</GroupName>
+	</Group>
+	<Event>
+		<Operation>CREATE</Operation>
+		<EventName>Buck-i-frenzy</EventName>
+		<EventInfo>ABCD</EventInfo>
+		<EventDetails>The biggest them all... come... have some some awesome
+			food
+		</EventDetails>
+		<PrimaryEventCoordinator firstName="Brutus"
+			lastName="Bukeye"></PrimaryEventCoordinator>
+			<EventLocation>Columbus</EventLocation>
+			<EventDateTime>23 Dec, 2014</EventDateTime>
+			<EventDuration>1 hour</EventDuration>
+	</Event>
+	<Event>
+		<Operation>READ</Operation>
+		<EventName>Buck-i-frenzy</EventName>
+	</Event>
+	<Event>
+		<Operation>UPDATE</Operation>
+		<EventName>Buck-i-frenzy</EventName>
+		<EventDetails>Event location has been changed.</EventDetails>
+		<EventInfo>Awesome event</EventInfo>
+	</Event>
+	<Event>
+		<Operation>DELETE</Operation>
+		<EventName>Buck-i-frenzy</EventName>
+	</Event>
+</BucKonnectData>

@@ -1,12 +1,10 @@
 public class User {
-	private String Operation;
 	private String OSU_Email_ID;
 	private String firstName;
 	private String lastName;
-	private int phoneNumber;
+	private String phoneNumber;
 	private String dob;
 	private boolean isFaculty;
-	private String username;
 	private String password;
 	private String aboutMe;
 	private String major;
@@ -15,31 +13,20 @@ public class User {
 	public User() {
 	}
 
-	public User(String Operation, String OSU_Email_ID, String firstName,
-			String lastName, int phoneNumber, String dob, boolean isFaculty,
-			String username, String password, String aboutMe, String major,
-			String interests) {
-		this.Operation = Operation;
+	public User(String OSU_Email_ID, String firstName,
+			String lastName, String phoneNumber, String dob, boolean isFaculty,
+			String password, String aboutMe, String major, String interests) {
 		this.OSU_Email_ID = OSU_Email_ID;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
 		this.dob = dob;
 		this.isFaculty = isFaculty;
-		this.username = username;
 		this.password = password;
 		this.aboutMe = aboutMe;
 		this.interests = interests;
 		this.major = major;
 
-	}
-
-	public String getOperation() {
-		return Operation;
-	}
-
-	public void setOperation(String Operation) {
-		this.Operation = Operation;
 	}
 
 	public String getOSUID() {
@@ -66,11 +53,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -88,14 +75,6 @@ public class User {
 
 	public void setFaculty(boolean isF) {
 		this.isFaculty = isF;
-	}
-
-	public String getUserName() {
-		return username;
-	}
-
-	public void setUserName(String username) {
-		this.username = username;
 	}
 
 	public String getpassword() {
@@ -142,8 +121,6 @@ public class User {
 		sb.append("Date Of Birth:" + getDate());
 		sb.append(", ");
 		sb.append("Is Faculty or Not:" + getFaculty());
-		sb.append(", ");
-		sb.append("Username And Password" + getUserName() + getpassword());
 		sb.append(", ");
 		sb.append("About Me:" + getAboutMe());
 		sb.append(", ");
