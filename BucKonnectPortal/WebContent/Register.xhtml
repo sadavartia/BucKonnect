@@ -8,6 +8,9 @@
 
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
 	<ui:define name="content">
+	<h:head>
+	</h:head>
+	<h:body>
 		<h:form>
 			<h:panelGrid columns="2">
 				<h:outputText id="o1" value="Name"></h:outputText>
@@ -36,6 +39,7 @@
             left: 200px; top: 100px; width: 100px; height: 25px; cursor: pointer"></h:commandButton>
 			<h:messages style="color:red;margin:8px;" />
 		</h:form>
+	</h:body>
 	</ui:define>
 </ui:composition>
 </html>
