@@ -1,5 +1,6 @@
 package backingBeans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bucKonnect.EJB.Entities.*;
@@ -9,38 +10,32 @@ import javax.ejb.EJB;
 
 public class SearchGroupBean {
 
-    @EJB
+	@EJB
 	private GroupService groupService;
 	private String groupName;
 
 	private String category;
-	
 
-	private List<List<String>> Search_List;
+	private List<List<String>> Search_List = new ArrayList<List<String>>();
 
-	
 	public String searchGroup() {
 		if (!(getGroupName()).isEmpty()) {
 			GroupEntity group = new GroupEntity();
 			group.setGroup_Name(getGroupName());
 			group.setCategory(getCategory());
 			Search_List = groupService.search_Groups(group);
-		
-				return "Success";
-		
-		} else
-			return "Error";
+		}
+		return "Success";
 
 	}
 
-		public List<List<String>> getSearch_List() {
+	public List<List<String>> getSearch_List() {
 		return Search_List;
 	}
 
 	public void setSearch_List(List<List<String>> search_List) {
 		Search_List = search_List;
 	}
-
 
 	public String getGroupName() {
 		return groupName;

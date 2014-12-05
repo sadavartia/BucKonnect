@@ -30,10 +30,7 @@ public class SearchUserGroupBean {
 		user.setOSU_Email_Id(loginBean.getName());
 
 		userGroups = userGroupService.searchUserGroups(user);
-		if (userGroups.size() > 0)
-			return "UserGroups";
-		else
-			return "Error";
+		return "UserGroups";
 	}
 
 	// public String searchGroup() {

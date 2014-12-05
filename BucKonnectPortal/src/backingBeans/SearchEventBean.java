@@ -1,6 +1,7 @@
 package backingBeans;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class SearchEventBean {
 	private Date event_Date_Time;
 	private Time event_Duration;
 
-	private List<List<String>> Search_List;
+	private List<List<String>> Search_List = new ArrayList<List<String>>();
 
 	public String searchEvent() {
 		if (!(getEvent_Name()).isEmpty()) {
@@ -29,10 +30,8 @@ public class SearchEventBean {
 			event.setEvent_Name(getEvent_Name());
 			event.setEvent_Location(getEvent_Location());
 			Search_List = eventService.search_Events(event);
-			return "Success";
-
-		} else
-			return "Error";
+		}
+		return "Success";
 	}
 
 	public List<List<String>> getSearch_List() {

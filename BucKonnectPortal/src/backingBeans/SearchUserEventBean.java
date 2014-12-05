@@ -30,10 +30,7 @@ public class SearchUserEventBean {
 		user.setOSU_Email_Id(loginBean.getName());
 
 		userEvents = userEventService.searchUserEvents(user);
-		if (userEvents.size() > 0)
-			return "UserEvents";
-		else
-			return "Error";
+		return "UserEvents";
 	}
 
 	// public String searchGroup() {
