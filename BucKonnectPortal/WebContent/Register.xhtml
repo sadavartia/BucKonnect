@@ -13,13 +13,13 @@
 				<h:outputText id="o1" value="Name"></h:outputText>
 				<h:inputText id="i1" value="#{registerBean.name}"
 					validatorMessage="Name should be in format: xyz.#@osu.edu">
-					<!-- <f:validateRegex pattern="[a-zA-Z]+.[0-9]+@osu.edu"></f:validateRegex> -->
+					<f:validateRegex pattern="[a-zA-Z]+.[0-9]+@osu.edu"></f:validateRegex>
 				</h:inputText>
 				<h:outputText id="o2" value="Password"></h:outputText>
 				<h:inputSecret id="i2" value="#{registerBean.password}"
 					validatorMessage="Password should be between 8 to 20 chars"
 					required="true">
-					<!-- <f:validateLength for="password" minimum="8" maximum="20" /> -->
+					<f:validateLength for="password" minimum="8" maximum="20" />
 				</h:inputSecret>
 				
 				<h:outputText id="o3" value="#{registerBean.valid}"></h:outputText>
