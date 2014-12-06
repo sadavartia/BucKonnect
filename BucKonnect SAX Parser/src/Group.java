@@ -1,5 +1,5 @@
-
 public class Group {
+	private String operation;
 	private String groupName;
 	private String groupInfo;
 	private String primaryAdmin;
@@ -8,8 +8,9 @@ public class Group {
 	public Group() {
 	}
 
-	public Group(String groupName, String groupInfo, String primaryAdmin,
-			String category) {
+	public Group(String operation, String groupName, String groupInfo,
+			String primaryAdmin, String category) {
+		this.operation = operation;
 		this.groupName = groupName;
 		this.groupInfo = groupInfo;
 		this.primaryAdmin = primaryAdmin;
@@ -50,7 +51,7 @@ public class Group {
 
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("User Details - ");
+		sb.append("Group Details - ");
 		sb.append("Group Name:" + getGroupName());
 		sb.append(", ");
 		sb.append("Group Info:" + getGroupInfo());
@@ -60,6 +61,21 @@ public class Group {
 		sb.append("Categories:" + getCategory());
 		sb.append(".");
 		return sb.toString();
+	}
+
+	/**
+	 * @return the operation
+	 */
+	public String getOperation() {
+		return operation;
+	}
+
+	/**
+	 * @param operation
+	 *            the operation to set
+	 */
+	public void setOperation(String operation) {
+		this.operation = operation;
 	}
 
 }

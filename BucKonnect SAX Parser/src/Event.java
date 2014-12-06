@@ -1,4 +1,5 @@
 public class Event {
+	private String operation;
 	private String eventName;
 	private String eventInfo;
 	private String eventDetails;
@@ -10,9 +11,10 @@ public class Event {
 	public Event() {
 	}
 
-	public Event(String eventName, String eventInfo, String eventDetails,
-			String primaryEventCoordinator, String eventLocation,
-			String eventDateTime, String eventDuration) {
+	public Event(String operation, String eventName, String eventInfo,
+			String eventDetails, String primaryEventCoordinator,
+			String eventLocation, String eventDateTime, String eventDuration) {
+		this.operation = operation;
 		this.eventName = eventName;
 		this.eventInfo = eventInfo;
 		this.eventDetails = eventDetails;
@@ -124,6 +126,21 @@ public class Event {
 	 */
 	public void setEventDuration(String eventDuration) {
 		this.eventDuration = eventDuration;
+	}
+
+	/**
+	 * @return the operation
+	 */
+	public String getOperation() {
+		return operation;
+	}
+
+	/**
+	 * @param operation
+	 *            the operation to set
+	 */
+	public void setOperation(String operation) {
+		this.operation = operation;
 	}
 
 }

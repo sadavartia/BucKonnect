@@ -1,4 +1,5 @@
 public class User {
+	private String operation;
 	private String OSU_Email_ID;
 	private String firstName;
 	private String lastName;
@@ -13,9 +14,10 @@ public class User {
 	public User() {
 	}
 
-	public User(String OSU_Email_ID, String firstName,
+	public User(String operation, String OSU_Email_ID, String firstName,
 			String lastName, String phoneNumber, String dob, boolean isFaculty,
 			String password, String aboutMe, String major, String interests) {
+		this.operation = operation;
 		this.OSU_Email_ID = OSU_Email_ID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -130,6 +132,21 @@ public class User {
 		sb.append(".");
 
 		return sb.toString();
+	}
+
+	/**
+	 * @return the operation
+	 */
+	public String getOperation() {
+		return operation;
+	}
+
+	/**
+	 * @param operation
+	 *            the operation to set
+	 */
+	public void setOperation(String operation) {
+		this.operation = operation;
 	}
 
 }
