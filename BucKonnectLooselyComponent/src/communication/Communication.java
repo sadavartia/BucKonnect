@@ -1,6 +1,8 @@
 package communication;
 
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -25,6 +27,8 @@ public class Communication {
 	private static String USER_NAME = "buckonnect";  // GMail user name (just the part before "@gmail.com")
 	private static String PASSWORD = "gobucks!"; // GMail password
 	//	private static String RECIPIENT = "+16148150762@tmomail.net";
+	public static final String SALT = "buck-text";
+
 
 
 	public static void main(String[] args) {
@@ -55,6 +59,10 @@ public class Communication {
 				System.out.println("OSU_Email_ID : "
 						+ results.getString("OSU_EMAIL_ID"));
 				String phone_number= results.getString("PHONE_NUMBER");
+				//String saltedPhonenumber = SALT + phone_n;
+		        //String phone_number = generateHash(saltedPhonenumber);
+		        //System.out.println("Phone Number: "
+					//	+ phone_number );
 				body = "Dear " +  results.getString("FIRST_NAME") + ", We thank you for being a part of BucKonnect!";
 				String[] phone = { phone_number +"@tmomail.net"} ; // list of recipient email addresses
 				String[] to = { results.getString("OSU_EMAIL_ID")};
@@ -114,5 +122,25 @@ public class Communication {
 			me.printStackTrace();
 		}
 	}
+	
+	public static String generateHash(String input) {
+        StringBuilder hash = new StringBuilder();
+
+        try {
+            MessageDigest sha = MessageDigest.getInstance("SHA-1");
+            byte[] hashedBytes = sha.digest(input.getBytes());
+            char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                    'a', 'b', 'c', 'd', 'e', 'f' };
+            for (int idx = 0; idx < hashedBytes.length;++idx) {
+                byte b = hashedBytes[idx];
+                hash.append(digits[(b & 0xf0) >> 4]);
+                hash.append(digits[b & 0x0f]);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            // handle error here.
+        }
+
+        return hash.toString();
+    }
 }
 

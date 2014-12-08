@@ -1,5 +1,7 @@
 package backingBeans;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.util.List;
 
@@ -8,10 +10,6 @@ import javax.ejb.EJB;
 import bucKonnect.EJB.Entities.UserEntity;
 import bucKonnect.EJB.Sessions.UserService;
 
-/**
- * @author Nandkumar
- *
- */
 public class UserProfileBean {
 
 	private LoginBean loginBean;
@@ -36,6 +34,8 @@ public class UserProfileBean {
 	private String major;
 	private String about_Me;
 	private String interests;
+	
+	public static final String SALT = "buck-text";
 
 	public String get_Profile() {
 
@@ -138,7 +138,9 @@ public class UserProfileBean {
 	 *            the phone_Number to set
 	 */
 	public void setPhone_Number(String phone_Number) {
-		this.phone_Number = phone_Number;
+		
+			this.phone_Number = phone_Number;
+		
 	}
 
 	/**
@@ -245,5 +247,25 @@ public class UserProfileBean {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public static String generateHash(String input) {
+        StringBuilder hash = new StringBuilder();
+
+        try {
+            MessageDigest sha = MessageDigest.getInstance("SHA-1");
+            byte[] hashedBytes = sha.digest(input.getBytes());
+            char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                    'a', 'b', 'c', 'd', 'e', 'f' };
+            for (int idx = 0; idx < hashedBytes.length;++idx) {
+                byte b = hashedBytes[idx];
+                hash.append(digits[(b & 0xf0) >> 4]);
+                hash.append(digits[b & 0x0f]);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            // handle error here.
+        }
+
+        return hash.toString();
+    }
 
 }
