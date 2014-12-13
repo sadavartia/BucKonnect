@@ -55,7 +55,7 @@ public class Communication {
 				System.out.println("OSU_Email_ID : "
 						+ results.getString("OSU_EMAIL_ID"));
 				String phone_number= results.getString("PHONE_NUMBER");
-				body = "Dear " +  results.getString("FIRST_NAME") + ", We thank you for being a part of BucKonnect!";
+				body = "Dear " +  results.getString("FIRST_NAME") + ", You are receiving this email/sms as you were registered as a user during BucKonnect's Demo. We thank you for being a part of BucKonnect!";
 				String[] phone = { phone_number +"@tmomail.net"} ; // list of recipient email addresses
 				String[] to = { results.getString("OSU_EMAIL_ID")};
 				sendFromGMail(from, pass, to, subject, body);
