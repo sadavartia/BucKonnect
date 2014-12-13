@@ -1,6 +1,7 @@
 package communication;
 
-
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -19,30 +20,33 @@ public class Communication {
 		Class.forName("org.h2.Driver");
 
 		conn = DriverManager.getConnection(
-				"jdbc:h2:tcp://localhost/~/BucKonnectDestination", "sa", "bucks");
+				"jdbc:h2:tcp://localhost/~/BucKonnectDestination", "sa",
+				"bucks");
 	}
 
-	private static String USER_NAME = "buckonnect";  // GMail user name (just the part before "@gmail.com")
+	private static String USER_NAME = "buckonnect"; // GMail user name (just the
+													// part before "@gmail.com")
 	private static String PASSWORD = "gobucks!"; // GMail password
-	//	private static String RECIPIENT = "+16148150762@tmomail.net";
-
+	// private static String RECIPIENT = "+16148150762@tmomail.net";
+	public static final String SALT = "buck-text";
 
 	public static void main(String[] args) {
 
 		try {
-			Communication obj= new Communication();
+			Communication obj = new Communication();
 			obj.readEmailID();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	public void readEmailID(){
 
+	public void readEmailID() {
 
-		try{
+		try {
 			String query = "SELECT * FROM Users";
-			Statement stmt = conn.createStatement();;
+			Statement stmt = conn.createStatement();
+			;
 
 			ResultSet results = stmt.executeQuery(query);
 			String from = USER_NAME;
@@ -54,27 +58,28 @@ public class Communication {
 			while (results.next()) {
 				System.out.println("OSU_Email_ID : "
 						+ results.getString("OSU_EMAIL_ID"));
-				String phone_number= results.getString("PHONE_NUMBER");
-				body = "Dear " +  results.getString("FIRST_NAME") + ", You are receiving this email/sms as you were registered as a user during BucKonnect's Demo. We thank you for being a part of BucKonnect!";
-				String[] phone = { phone_number +"@tmomail.net"} ; // list of recipient email addresses
-				String[] to = { results.getString("OSU_EMAIL_ID")};
+				String phone_number = results.getString("PHONE_NUMBER");
+				body = "Dear "
+						+ results.getString("FIRST_NAME")
+						+ ", You are receiving this email/sms as you were registered as a user during BucKonnect's Demo. We thank you for being a part of BucKonnect!";
+				String[] phone = { phone_number + "@tmomail.net" }; // list of
+																	// recipient
+																	// email
+																	// addresses
+				String[] to = { results.getString("OSU_EMAIL_ID") };
 				sendFromGMail(from, pass, to, subject, body);
-				if(!(phone_number.isEmpty())){
+				if (!(phone_number.isEmpty())) {
 					sendFromGMail(from, pass, phone, subject, body);
 				}
 
-
 			}
-		}
-		catch (Exception error) {
+		} catch (Exception error) {
 			System.out.println(error);
 		}
 	}
 
-
-
-
-	private static void sendFromGMail(String from, String pass, String[] to, String subject, String body) {
+	private static void sendFromGMail(String from, String pass, String[] to,
+			String subject, String body) {
 		Properties props = System.getProperties();
 		String host = "smtp.gmail.com";
 		props.put("mail.smtp.starttls.enable", "true");
@@ -92,11 +97,11 @@ public class Communication {
 			InternetAddress[] toAddress = new InternetAddress[to.length];
 
 			// To get the array of addresses
-			for( int i = 0; i < to.length; i++ ) {
+			for (int i = 0; i < to.length; i++) {
 				toAddress[i] = new InternetAddress(to[i]);
 			}
 
-			for( int i = 0; i < toAddress.length; i++) {
+			for (int i = 0; i < toAddress.length; i++) {
 				message.addRecipient(Message.RecipientType.TO, toAddress[i]);
 			}
 
@@ -106,13 +111,30 @@ public class Communication {
 			transport.connect(host, from, pass);
 			transport.sendMessage(message, message.getAllRecipients());
 			transport.close();
-		}
-		catch (AddressException ae) {
+		} catch (AddressException ae) {
 			ae.printStackTrace();
-		}
-		catch (MessagingException me) {
+		} catch (MessagingException me) {
 			me.printStackTrace();
 		}
 	}
-}
 
+	public static String generateHash(String input) {
+		StringBuilder hash = new StringBuilder();
+
+		try {
+			MessageDigest sha = MessageDigest.getInstance("SHA-1");
+			byte[] hashedBytes = sha.digest(input.getBytes());
+			char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+					'a', 'b', 'c', 'd', 'e', 'f' };
+			for (int idx = 0; idx < hashedBytes.length; ++idx) {
+				byte b = hashedBytes[idx];
+				hash.append(digits[(b & 0xf0) >> 4]);
+				hash.append(digits[b & 0x0f]);
+			}
+		} catch (NoSuchAlgorithmException e) {
+			// handle error here.
+		}
+
+		return hash.toString();
+	}
+}
